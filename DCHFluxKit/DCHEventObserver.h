@@ -21,16 +21,10 @@
 
 - (BOOL)addEventResponder:(id <DCHEventResponder>)eventResponder forEvent:(id <DCHEvent>)event;
 
-- (BOOL)addChainEventResponders:(NSArray *)eventResponders forEvent:(id <DCHEvent>)event;
-
 - (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder forEvent:(id <DCHEvent>)event;
-
-- (BOOL)removeChainEventResponders:(NSArray *)eventResponders forEvent:(id <DCHEvent>)event;
 
 - (BOOL)removeAllRespondersForEvent:(id <DCHEvent>)event;
 
 - (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder;
-
-- (BOOL)removeChainEventResponders:(NSArray *)eventResponders;
 
 @end

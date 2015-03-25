@@ -11,4 +11,6 @@
 
 @interface DCHStore : DCHEventObserver <DCHEventResponder>
 
+- (BOOL)respondEvent:(id <DCHEvent>)event waitFor:(DCHEventObserver *)eventObserver;
+
 @end

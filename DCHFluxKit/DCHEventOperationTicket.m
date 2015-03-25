@@ -20,6 +20,7 @@
 @synthesize event = _event;
 @synthesize working = _working;
 @synthesize canceled = _canceled;
+@synthesize finished = _finished;
 
 - (void)dealloc {
     do {

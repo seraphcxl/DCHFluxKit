@@ -45,8 +45,8 @@
     return DCHEventRunningType_Concurrent;
 }
 
-- (NSString *)description {
-    return [self UUID];
+- (NSString *)eventDescription {
+    return [NSString stringWithFormat:@"%@: %@", [self UUID], [super description]];
 }
 
 - (id <NSCopying>)payload {

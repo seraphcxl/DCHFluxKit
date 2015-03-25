@@ -8,7 +8,6 @@
 
 #import "DCHStore.h"
 #import "DCHEventOperationTicket.h"
-#import "DCHWeakWarpper.h"
 
 @implementation DCHStore
 
@@ -27,39 +26,16 @@
     return NO;
 }
 
-//- (BOOL)respondEvent:(id <DCHEvent>)event waitFor:(NSArray *)eventResponders withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
-//    BOOL result = NO;
-//    do {
-//        if (event == nil || eventResponders || eventResponders.count == 0) {
-//            break;
-//        }
-//        if (eventResponders.count == 1) {
-//            DCHWeakWarpper *weakWarpper = (DCHWeakWarpper *)[eventResponders objectAtIndex:0];
-//            id <DCHEventResponder> eventResponder = weakWarpper.object;
-//            [eventResponder respondEvent:event withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                [self respondEvent:outputEvent withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                    if (error) {
-//                        NSLog(@"%@", error);
-//                    }
-//                }];
-//            }];
-//        } else if (eventResponders.count > 1) {
-//            DCHWeakWarpper *weakWarpper = (DCHWeakWarpper *)[eventResponders lastObject];
-//            id <DCHEventResponder> eventResponder = weakWarpper.object;
-//            NSMutableArray *tmpEventResponders = [NSMutableArray arrayWithArray:eventResponders];
-//            [tmpEventResponders removeLastObject];
-//            [eventResponder respondEvent:event waitFor:tmpEventResponders withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                [self respondEvent:outputEvent withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                    if (error) {
-//                        NSLog(@"%@", error);
-//                    }
-//                }];
-//            }];
-//        }
-//        result = YES;
-//    } while (NO);
-//    return result;
-//}
+- (BOOL)respondEvent:(id <DCHEvent>)event waitFor:(DCHEventObserver *)eventObserver {
+    BOOL result = NO;
+    do {
+        if (!event || !eventObserver || self == eventObserver) {
+            break;
+        }
+        result = [eventObserver addEventResponder:self forEvent:event];
+    } while (NO);
+    return result;
+}
 
 - (DCHEventOperationTicket *)emitChange {
     return [self emitChangeWithEvent:self.outputEvent];

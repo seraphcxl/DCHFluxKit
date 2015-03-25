@@ -24,7 +24,7 @@ typedef NS_ENUM(NSUInteger, DCHEventRunningType) {
 
 - (DCHEventRunningType)runningType;
 
-- (NSString *)description;
+- (NSString *)eventDescription;
 
 - (id <NSCopying>)payload;
 

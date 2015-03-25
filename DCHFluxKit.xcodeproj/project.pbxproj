@@ -47,6 +47,7 @@
 		8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */; };
 		8DCAAB781ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB761ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h */; };
 		8DCAAB791ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB771ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m */; };
+		8DE62BC41AC2850C00052C65 /* SumStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE62BC31AC2850C00052C65 /* SumStore.m */; };
 		D5E50B78F29A3048737C593E /* libPods-DCHFluxKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644AC2DC920598D4CD892556 /* libPods-DCHFluxKit.a */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,8 @@
 		8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHIndexedArray.m; sourceTree = "<group>"; };
 		8DCAAB761ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DCHUUIDExtension.h"; sourceTree = "<group>"; };
 		8DCAAB771ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DCHUUIDExtension.m"; sourceTree = "<group>"; };
+		8DE62BC21AC2850C00052C65 /* SumStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SumStore.h; sourceTree = "<group>"; };
+		8DE62BC31AC2850C00052C65 /* SumStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SumStore.m; sourceTree = "<group>"; };
 		965BE187DB70D0C73DD1A971 /* libPods-DCHFluxKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCHFluxKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB54308E05941E063E5B4783 /* Pods-DCHFluxKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKit/Pods-DCHFluxKit.release.xcconfig"; sourceTree = "<group>"; };
 		C14FC576888B18F5597C7E19 /* Pods-DCHFluxKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKitDemo/Pods-DCHFluxKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -232,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				8D094F591ABEA837006EC21B /* DCHFluxKitTests.m */,
+				8D633CE31AC1024D0085FCF4 /* GreetingTests.m */,
 				8D094F571ABEA837006EC21B /* Supporting Files */,
 				8D633CD41AC0F0B70085FCF4 /* GreetingActionCreater.h */,
 				8D633CD51AC0F0B70085FCF4 /* GreetingActionCreater.m */,
@@ -243,7 +247,8 @@
 				8D633CDE1AC0F96F0085FCF4 /* GreetingStore.m */,
 				8D633CE01AC0FEF60085FCF4 /* GreetingViewModel.h */,
 				8D633CE11AC0FEF60085FCF4 /* GreetingViewModel.m */,
-				8D633CE31AC1024D0085FCF4 /* GreetingTests.m */,
+				8DE62BC21AC2850C00052C65 /* SumStore.h */,
+				8DE62BC31AC2850C00052C65 /* SumStore.m */,
 			);
 			path = DCHFluxKitTests;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				8D633CE21AC0FEF60085FCF4 /* GreetingViewModel.m in Sources */,
 				8D633CD91AC0F1F40085FCF4 /* GreetingEvent.m in Sources */,
 				8D633CDC1AC0F7520085FCF4 /* GreetingDispatcher.m in Sources */,
+				8DE62BC41AC2850C00052C65 /* SumStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

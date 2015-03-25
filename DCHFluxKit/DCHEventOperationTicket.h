@@ -17,6 +17,8 @@
 
 @property (nonatomic, assign, getter=isCanceled) BOOL canceled;
 
+@property (nonatomic, assign, getter=isFinished) BOOL finished;
+
 - (instancetype)initWithEvent:(id <DCHEvent>)event;
 
 - (NSString *)UUID;

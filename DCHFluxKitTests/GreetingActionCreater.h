@@ -13,6 +13,7 @@ extern NSString * const GreetingActionDomain;
 
 typedef NS_ENUM(NSUInteger, GreetingActionCode) {
     GreetingActionCode_Hello,
+    GreetingActionCode_Sum,
 };
 
 @interface GreetingActionCreater : NSObject

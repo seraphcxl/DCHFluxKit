@@ -10,6 +10,7 @@
 #import "DCHEvent.h"
 
 @class DCHEventOperationTicket;
+@class DCHEventObserver;
 
 typedef void(^DCHEventResponderCompletionHandler)(id eventResponder, id <DCHEvent>outputEvent, NSError *error);
 
@@ -21,8 +22,6 @@ typedef void(^DCHEventResponderCompletionHandler)(id eventResponder, id <DCHEven
 @optional
 @property (nonatomic, copy) id <DCHEvent> inputEvent;
 @property (nonatomic, copy) id <DCHEvent> outputEvent;
-
-- (BOOL)respondEvent:(id <DCHEvent>)event waitFor:(NSArray *)eventResponders withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;
 
 - (DCHEventOperationTicket *)emitChange;
 - (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event;

@@ -9,7 +9,6 @@
 #import "DCHViewModel.h"
 #import "DCHEventOperationTicket.h"
 #import "NSObject+DCHUUIDExtension.h"
-#import "DCHWeakWarpper.h"
 
 @interface DCHViewModel ()
 
@@ -47,40 +46,6 @@
 - (BOOL)respondEvent:(id <DCHEvent>)event withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     return NO;
 }
-
-//- (BOOL)respondEvent:(id <DCHEvent>)event waitFor:(NSArray *)eventResponders withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
-//    BOOL result = NO;
-//    do {
-//        if (event == nil || eventResponders || eventResponders.count == 0 || completionHandler == nil) {
-//            break;
-//        }
-//        if (eventResponders.count == 1) {
-//            DCHWeakWarpper *weakWarpper = (DCHWeakWarpper *)[eventResponders objectAtIndex:0];
-//            id <DCHEventResponder> eventResponder = weakWarpper.object;
-//            [eventResponder respondEvent:event withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                [self respondEvent:outputEvent withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                    if (error) {
-//                        NSLog(@"%@", error);
-//                    }
-//                }];
-//            }];
-//        } else if (eventResponders.count > 1) {
-//            DCHWeakWarpper *weakWarpper = (DCHWeakWarpper *)[eventResponders lastObject];
-//            id <DCHEventResponder> eventResponder = weakWarpper.object;
-//            NSMutableArray *tmpEventResponders = [NSMutableArray arrayWithArray:eventResponders];
-//            [tmpEventResponders removeLastObject];
-//            [eventResponder respondEvent:event waitFor:tmpEventResponders withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                [self respondEvent:outputEvent withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
-//                    if (error) {
-//                        NSLog(@"%@", error);
-//                    }
-//                }];
-//            }];
-//        }
-//        result = YES;
-//    } while (NO);
-//    return result;
-//}
 
 - (DCHEventOperationTicket *)emitChange {
     return [self emitChangeWithEvent:self.outputEvent];
