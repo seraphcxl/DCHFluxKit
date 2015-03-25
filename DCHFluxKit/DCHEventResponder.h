@@ -12,7 +12,7 @@
 @class DCHEventOperationTicket;
 @class DCHEventObserver;
 
-typedef void(^DCHEventResponderCompletionHandler)(id eventResponder, id <DCHEvent>outputEvent, NSError *error);
+typedef void(^DCHEventResponderCompletionHandler)(id eventResponder, id <DCHEvent> outputEvent, NSError *error);
 
 @protocol DCHEventResponder <NSObject>
 
