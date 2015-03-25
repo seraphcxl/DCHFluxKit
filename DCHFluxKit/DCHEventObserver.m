@@ -62,12 +62,17 @@
             
         result = [[DCHEventOperationTicket alloc] initWithEvent:event];
         
+        __weak typeof(self) weakSelf = self;
         dispatch_block_t action = ^{
             result.working = YES;
             result.finished = NO;
+            typeof(self) strongSelf = weakSelf;
             do {
+                if (!strongSelf) {
+                    break;
+                }
                 NSString *eventUUID = [event UUID];
-                DCHIndexedArray *indexAry = [self.eventDic objectForKey:eventUUID];
+                DCHIndexedArray *indexAry = [strongSelf.eventDic objectForKey:eventUUID];
                 if (!indexAry || result.isCanceled) {
                     break;
                 }
@@ -91,7 +96,9 @@
             } while (NO);
             result.finished = YES;
             result.working = NO;
-            [self.eventOperationTicketDic removeObjectForKey:[result UUID]];
+            if (strongSelf) {
+                [strongSelf.eventOperationTicketDic removeObjectForKey:[result UUID]];
+            }
         };
         
         switch ([event runningType]) {

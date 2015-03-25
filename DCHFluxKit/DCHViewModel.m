@@ -60,17 +60,30 @@
         
         result = [[DCHEventOperationTicket alloc] initWithEvent:event];
         
+        __weak typeof(self) weakSelf = self;
         dispatch_block_t action = ^{
             result.working = YES;
+            result.finished = NO;
+            typeof(self) strongSelf = weakSelf;
             do {
-                [self.eventResponder respondEvent:event withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+                
+                if (!strongSelf) {
+                    break;
+                }
+                if (result.isCanceled) {
+                    break;
+                }
+                [strongSelf.eventResponder respondEvent:event withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
                     if (error) {
                         NSLog(@"%@", error);
                     }
                 }];
             } while (NO);
-            [self.eventOperationTicketDic removeObjectForKey:[result UUID]];
+            result.finished = YES;
             result.working = NO;
+            if (strongSelf) {
+                [strongSelf.eventOperationTicketDic removeObjectForKey:[result UUID]];
+            }
         };
         
         switch ([event runningType]) {
