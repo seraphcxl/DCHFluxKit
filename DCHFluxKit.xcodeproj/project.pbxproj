@@ -43,6 +43,7 @@
 		8D633CE81AC10C420085FCF4 /* DCHAsyncTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CE61AC10C420085FCF4 /* DCHAsyncTest.m */; };
 		8D633CF31AC12F250085FCF4 /* DCHViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D633CF11AC12F250085FCF4 /* DCHViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D633CF41AC12F250085FCF4 /* DCHViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CF21AC12F250085FCF4 /* DCHViewModel.m */; };
+		8D6642C41AC2DB02001A6DF9 /* DCHFluxKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D094F471ABEA836006EC21B /* DCHFluxKit.framework */; };
 		8DCAAB741ABFAC3B00426FE6 /* DCHIndexedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */; };
 		8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */; };
 		8DCAAB781ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB761ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h */; };
@@ -65,6 +66,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8D094FAD1ABEA9F3006EC21B;
 			remoteInfo = DCHFluxKitDemo;
+		};
+		8D6642C21AC2DAFD001A6DF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8D094F3E1ABEA836006EC21B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D094F461ABEA836006EC21B;
+			remoteInfo = DCHFluxKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -154,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D6642C41AC2DB02001A6DF9 /* DCHFluxKit.framework in Frameworks */,
 				6E386D9703BBA10654E788E7 /* libPods-DCHFluxKitDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -401,6 +410,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8D6642C31AC2DAFD001A6DF9 /* PBXTargetDependency */,
 			);
 			name = DCHFluxKitDemo;
 			productName = DCHFluxKitDemo;
@@ -631,6 +641,11 @@
 			isa = PBXTargetDependency;
 			target = 8D094FAD1ABEA9F3006EC21B /* DCHFluxKitDemo */;
 			targetProxy = 8D094FCA1ABEA9F3006EC21B /* PBXContainerItemProxy */;
+		};
+		8D6642C31AC2DAFD001A6DF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D094F461ABEA836006EC21B /* DCHFluxKit */;
+			targetProxy = 8D6642C21AC2DAFD001A6DF9 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
