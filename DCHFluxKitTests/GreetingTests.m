@@ -24,6 +24,7 @@
 @property (nonatomic, strong) GreetingStore *store;
 @property (nonatomic, strong) GreetingViewModel *viewModel;
 @property (nonatomic, strong) NSMutableArray *sumStores;
+@property (nonatomic, assign) NSInteger num;
 
 @end
 
@@ -32,6 +33,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.num = 99;
     self.dispatcher = [[GreetingDispatcher alloc] init];
     self.store = [[GreetingStore alloc] init];
     self.viewModel = [[GreetingViewModel alloc] init];
@@ -54,8 +56,8 @@
     [self.sumStores addObject:sumStore1];
     [self.sumStores addObject:sumStore2];
     
-    [sumStore2 respondEvent:sumEvent waitFor:sumStore1];
-    [sumStore1 respondEvent:sumEvent waitFor:sumStore0];
+    [sumStore2 respondEvent:sumEvent dependOn:sumStore1];
+    [sumStore1 respondEvent:sumEvent dependOn:sumStore0];
     [self.dispatcher addEventResponder:sumStore0 forEvent:sumEvent];
 }
 
@@ -69,12 +71,28 @@
     XCTAssert(YES, @"Pass");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
-}
+//- (void)testPerformanceExample0 {
+//    // This is an example of a performance test case.
+//    [self measureBlock:^{
+//        do {
+//            for (NSUInteger i = 0; i < 100000; ++i) {
+//                NSInteger x = _num;
+//            }
+//        } while (NO);
+//        // Put the code you want to measure the time of here.
+//    }];
+//}
+//
+//- (void)testPerformanceExample1 {
+//    [self measureBlock:^{
+//        do {
+//            for (NSUInteger i = 0; i < 100000; ++i) {
+//                NSInteger y = self.num;
+//            }
+//        } while (NO);
+//        // Put the code you want to measure the time of here.
+//    }];
+//}
 
 - (void)test4Greeting {
     do {

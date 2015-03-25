@@ -26,13 +26,13 @@
     return NO;
 }
 
-- (BOOL)respondEvent:(id <DCHEvent>)event waitFor:(DCHEventObserver *)eventObserver {
+- (BOOL)respondEvent:(id <DCHEvent>)event dependOn:(DCHStore *)store {
     BOOL result = NO;
     do {
-        if (!event || !eventObserver || self == eventObserver) {
+        if (!event || !store || self == store) {
             break;
         }
-        result = [eventObserver addEventResponder:self forEvent:event];
+        result = [store addEventResponder:self forEvent:event];
     } while (NO);
     return result;
 }
