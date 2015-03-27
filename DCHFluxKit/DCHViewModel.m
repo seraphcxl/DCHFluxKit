@@ -43,7 +43,7 @@
 }
 
 #pragma mark - DCHEventResponder
-- (BOOL)respondEvent:(id <DCHEvent>)event withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
+- (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     return NO;
 }
 
@@ -73,7 +73,7 @@
                 if (result.isCanceled) {
                     break;
                 }
-                [strongSelf.eventResponder respondEvent:event withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+                [strongSelf.eventResponder respondEvent:event from:strongSelf withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
                     if (error) {
                         NSLog(@"%@", error);
                     }

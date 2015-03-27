@@ -16,7 +16,7 @@
 
 @implementation SumStore
 
-- (BOOL)respondEvent:(id <DCHEvent>)event withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
+- (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     BOOL result = NO;
     do {
         if (event == nil || completionHandler == nil) {

@@ -17,7 +17,7 @@ typedef void(^DCHEventResponderCompletionHandler)(id eventResponder, id <DCHEven
 @protocol DCHEventResponder <NSObject>
 
 @required
-- (BOOL)respondEvent:(id <DCHEvent>)event withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;
+- (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;
 
 @optional
 @property (nonatomic, copy) id <DCHEvent> inputEvent;

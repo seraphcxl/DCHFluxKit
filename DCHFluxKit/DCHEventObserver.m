@@ -85,7 +85,7 @@
                         DCHWeakWarpper *weakWarpper = (DCHWeakWarpper *)obj;
                         id <DCHEventResponder> eventResponder = weakWarpper.object;
                         if (eventResponder) {
-                            [eventResponder respondEvent:event withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+                            [eventResponder respondEvent:event from:strongSelf withCompletionHandler:^(id eventReponder, id <DCHEvent> outputEvent, NSError *error) {
                                 if (callback) {
                                     callback(eventResponder, outputEvent, error);
                                 }

@@ -11,15 +11,8 @@
 @implementation UIViewController (DCHFluxKit)
 
 #pragma mark - DCHEventResponder
-- (BOOL)respondEvent:(id <DCHEvent>)event withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
-    BOOL result = NO;
-    do {
-        if (event == nil || completionHandler == nil) {
-            break;
-        }
-        result = YES;
-    } while (NO);
-    return result;
+- (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
+    return NO;
 }
 
 @end
