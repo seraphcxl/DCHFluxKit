@@ -18,6 +18,7 @@ FOUNDATION_EXPORT const unsigned char DCHFluxKitVersionString[];
 
 #import "DCHEvent.h"
 #import "DCHEventResponder.h"
+#import "DCHEventOperationTicket.h"
 #import "DCHEventObserver.h"
 #import "DCHDispatcher.h"
 #import "DCHStore.h"

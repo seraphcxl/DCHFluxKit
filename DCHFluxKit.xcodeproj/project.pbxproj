@@ -22,7 +22,7 @@
 		8D094F7C1ABEA847006EC21B /* DCHWeakWarpper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D094F6E1ABEA847006EC21B /* DCHWeakWarpper.m */; };
 		8D094F7D1ABEA847006EC21B /* UIViewController+DCHFluxKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D094F6F1ABEA847006EC21B /* UIViewController+DCHFluxKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D094F7E1ABEA847006EC21B /* UIViewController+DCHFluxKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D094F701ABEA847006EC21B /* UIViewController+DCHFluxKit.m */; };
-		8D5A6E121AC18EDF0026CBD2 /* DCHEventOperationTicket.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5A6E101AC18EDF0026CBD2 /* DCHEventOperationTicket.h */; };
+		8D5A6E121AC18EDF0026CBD2 /* DCHEventOperationTicket.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D5A6E101AC18EDF0026CBD2 /* DCHEventOperationTicket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D5A6E131AC18EDF0026CBD2 /* DCHEventOperationTicket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D5A6E111AC18EDF0026CBD2 /* DCHEventOperationTicket.m */; };
 		8D633CD61AC0F0B70085FCF4 /* GreetingActionCreater.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CD51AC0F0B70085FCF4 /* GreetingActionCreater.m */; };
 		8D633CD91AC0F1F40085FCF4 /* GreetingEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CD81AC0F1F40085FCF4 /* GreetingEvent.m */; };
