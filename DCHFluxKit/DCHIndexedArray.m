@@ -7,6 +7,7 @@
 //
 
 #import "DCHIndexedArray.h"
+#import <Tourbillon/DCHTourbillon.h>
 
 @interface DCHIndexedArray ()
 

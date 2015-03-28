@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A9CBE8C08F2D83C87E32699 /* libPods-DCHFluxKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B158A0EA6F4C092AE215C48A /* libPods-DCHFluxKitTests.a */; };
 		8D094F4D1ABEA836006EC21B /* DCHFluxKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D094F4C1ABEA836006EC21B /* DCHFluxKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D094F531ABEA837006EC21B /* DCHFluxKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D094F471ABEA836006EC21B /* DCHFluxKit.framework */; };
 		8D094F5A1ABEA837006EC21B /* DCHFluxKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D094F591ABEA837006EC21B /* DCHFluxKitTests.m */; };
@@ -34,9 +35,8 @@
 		8D633CF41AC12F250085FCF4 /* DCHViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CF21AC12F250085FCF4 /* DCHViewModel.m */; };
 		8DCAAB741ABFAC3B00426FE6 /* DCHIndexedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */; };
 		8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */; };
-		8DCAAB781ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB761ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h */; };
-		8DCAAB791ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB771ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m */; };
 		8DE62BC41AC2850C00052C65 /* SumStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE62BC31AC2850C00052C65 /* SumStore.m */; };
+		BFD53D9EDAA8E67AB197E342 /* libPods-DCHFluxKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644AC2DC920598D4CD892556 /* libPods-DCHFluxKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +52,7 @@
 /* Begin PBXFileReference section */
 		2B4EFC48FF5C5C78F9259562 /* Pods-DCHFluxKitDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKitDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKitDemo/Pods-DCHFluxKitDemo.release.xcconfig"; sourceTree = "<group>"; };
 		644AC2DC920598D4CD892556 /* libPods-DCHFluxKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCHFluxKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B46EE670461F074911D5D98 /* Pods-DCHFluxKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKitTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKitTests/Pods-DCHFluxKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		8D094F471ABEA836006EC21B /* DCHFluxKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCHFluxKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D094F4B1ABEA836006EC21B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D094F4C1ABEA836006EC21B /* DCHFluxKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCHFluxKit.h; sourceTree = "<group>"; };
@@ -87,13 +88,13 @@
 		8D633CF21AC12F250085FCF4 /* DCHViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHViewModel.m; sourceTree = "<group>"; };
 		8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHIndexedArray.h; sourceTree = "<group>"; };
 		8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHIndexedArray.m; sourceTree = "<group>"; };
-		8DCAAB761ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DCHUUIDExtension.h"; sourceTree = "<group>"; };
-		8DCAAB771ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DCHUUIDExtension.m"; sourceTree = "<group>"; };
 		8DE62BC21AC2850C00052C65 /* SumStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SumStore.h; sourceTree = "<group>"; };
 		8DE62BC31AC2850C00052C65 /* SumStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SumStore.m; sourceTree = "<group>"; };
 		965BE187DB70D0C73DD1A971 /* libPods-DCHFluxKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCHFluxKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB54308E05941E063E5B4783 /* Pods-DCHFluxKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKit/Pods-DCHFluxKit.release.xcconfig"; sourceTree = "<group>"; };
+		B158A0EA6F4C092AE215C48A /* libPods-DCHFluxKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCHFluxKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C14FC576888B18F5597C7E19 /* Pods-DCHFluxKitDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKitDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKitDemo/Pods-DCHFluxKitDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		C5C4F92A23E87EE398017713 /* Pods-DCHFluxKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKitTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKitTests/Pods-DCHFluxKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D065829C2D2B26DE226E3297 /* Pods-DCHFluxKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKit/Pods-DCHFluxKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFD53D9EDAA8E67AB197E342 /* libPods-DCHFluxKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D094F531ABEA837006EC21B /* DCHFluxKit.framework in Frameworks */,
+				4A9CBE8C08F2D83C87E32699 /* libPods-DCHFluxKitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,8 +159,6 @@
 				8D633CF21AC12F250085FCF4 /* DCHViewModel.m */,
 				8D094F6D1ABEA847006EC21B /* DCHWeakWarpper.h */,
 				8D094F6E1ABEA847006EC21B /* DCHWeakWarpper.m */,
-				8DCAAB761ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h */,
-				8DCAAB771ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m */,
 				8D094F6F1ABEA847006EC21B /* UIViewController+DCHFluxKit.h */,
 				8D094F701ABEA847006EC21B /* UIViewController+DCHFluxKit.m */,
 				8D094F4A1ABEA836006EC21B /* Supporting Files */,
@@ -208,6 +209,7 @@
 			children = (
 				644AC2DC920598D4CD892556 /* libPods-DCHFluxKit.a */,
 				965BE187DB70D0C73DD1A971 /* libPods-DCHFluxKitDemo.a */,
+				B158A0EA6F4C092AE215C48A /* libPods-DCHFluxKitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,6 +221,8 @@
 				AB54308E05941E063E5B4783 /* Pods-DCHFluxKit.release.xcconfig */,
 				C14FC576888B18F5597C7E19 /* Pods-DCHFluxKitDemo.debug.xcconfig */,
 				2B4EFC48FF5C5C78F9259562 /* Pods-DCHFluxKitDemo.release.xcconfig */,
+				C5C4F92A23E87EE398017713 /* Pods-DCHFluxKitTests.debug.xcconfig */,
+				7B46EE670461F074911D5D98 /* Pods-DCHFluxKitTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -241,7 +245,6 @@
 				8D5A6E121AC18EDF0026CBD2 /* DCHEventOperationTicket.h in Headers */,
 				8D094F7B1ABEA847006EC21B /* DCHWeakWarpper.h in Headers */,
 				8D094F711ABEA847006EC21B /* DCHDispatcher.h in Headers */,
-				8DCAAB781ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,10 +255,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D094F5D1ABEA837006EC21B /* Build configuration list for PBXNativeTarget "DCHFluxKit" */;
 			buildPhases = (
+				D303C8FF21B9CAEBB1761367 /* Check Pods Manifest.lock */,
 				8D094F421ABEA836006EC21B /* Sources */,
 				8D094F431ABEA836006EC21B /* Frameworks */,
 				8D094F441ABEA836006EC21B /* Headers */,
 				8D094F451ABEA836006EC21B /* Resources */,
+				694E8EC8B5840B722AE07A60 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -270,9 +275,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D094F601ABEA837006EC21B /* Build configuration list for PBXNativeTarget "DCHFluxKitTests" */;
 			buildPhases = (
+				68FD646687B41E05A4116571 /* Check Pods Manifest.lock */,
 				8D094F4E1ABEA837006EC21B /* Sources */,
 				8D094F4F1ABEA837006EC21B /* Frameworks */,
 				8D094F501ABEA837006EC21B /* Resources */,
+				336012B4E8001EDE011D087B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -337,6 +344,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		336012B4E8001EDE011D087B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCHFluxKitTests/Pods-DCHFluxKitTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68FD646687B41E05A4116571 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		694E8EC8B5840B722AE07A60 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DCHFluxKit/Pods-DCHFluxKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D303C8FF21B9CAEBB1761367 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8D094F421ABEA836006EC21B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -345,7 +415,6 @@
 				8D094F7E1ABEA847006EC21B /* UIViewController+DCHFluxKit.m in Sources */,
 				8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */,
 				8D094F781ABEA847006EC21B /* DCHStore.m in Sources */,
-				8DCAAB791ABFB25F00426FE6 /* NSObject+DCHUUIDExtension.m in Sources */,
 				8D094F751ABEA847006EC21B /* DCHEventObserver.m in Sources */,
 				8D5A6E131AC18EDF0026CBD2 /* DCHEventOperationTicket.m in Sources */,
 				8D094F7C1ABEA847006EC21B /* DCHWeakWarpper.m in Sources */,
@@ -466,6 +535,7 @@
 		};
 		8D094F5E1ABEA837006EC21B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D065829C2D2B26DE226E3297 /* Pods-DCHFluxKit.debug.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -481,6 +551,7 @@
 		};
 		8D094F5F1ABEA837006EC21B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB54308E05941E063E5B4783 /* Pods-DCHFluxKit.release.xcconfig */;
 			buildSettings = {
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -496,6 +567,7 @@
 		};
 		8D094F611ABEA837006EC21B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C5C4F92A23E87EE398017713 /* Pods-DCHFluxKitTests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -513,6 +585,7 @@
 		};
 		8D094F621ABEA837006EC21B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B46EE670461F074911D5D98 /* Pods-DCHFluxKitTests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",

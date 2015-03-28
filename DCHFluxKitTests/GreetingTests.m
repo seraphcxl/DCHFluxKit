@@ -16,7 +16,7 @@
 #import "GreetingViewModel.h"
 #import "SumStore.h"
 
-//#import "DCHAsyncTest.h"
+#import <Tourbillon/DCHTourbillon.h>
 
 @interface GreetingTests : XCTestCase
 
@@ -104,11 +104,11 @@
         
         NSLog(@"handle event over with tickets: %@", tickets);
         
-//        [DCHAsyncTest expect:^BOOL{
-//            return [self.viewModel.greeting isEqualToString:@"Hello, Suise."];
-//        } withCompletionHandler:^(BOOL promiseResult, NSError *error, NSDictionary *infoDic) {
-//            NSLog(@"PromiseResult: %d, Error: %@, Info: %@", promiseResult, error, infoDic);
-//        }];
+        [DCHAsyncTest expect:^BOOL{
+            return [self.viewModel.greeting isEqualToString:@"Hello, Suise."];
+        } withCompletionHandler:^(BOOL promiseResult, NSError *error, NSDictionary *infoDic) {
+            NSLog(@"PromiseResult: %d, Error: %@, Info: %@", promiseResult, error, infoDic);
+        }];
     } while (NO);
 }
 
@@ -122,12 +122,12 @@
         
         NSLog(@"handle event over with tickets: %@", tickets);
         
-//        [DCHAsyncTest expect:^BOOL{
-//            SumStore *sumStore = self.sumStores.lastObject;
-//            return sumStore.result == 6;
-//        } withCompletionHandler:^(BOOL promiseResult, NSError *error, NSDictionary *infoDic) {
-//            NSLog(@"PromiseResult: %d, Error: %@, Info: %@", promiseResult, error, infoDic);
-//        }];
+        [DCHAsyncTest expect:^BOOL{
+            SumStore *sumStore = self.sumStores.lastObject;
+            return sumStore.result == 6;
+        } withCompletionHandler:^(BOOL promiseResult, NSError *error, NSDictionary *infoDic) {
+            NSLog(@"PromiseResult: %d, Error: %@, Info: %@", promiseResult, error, infoDic);
+        }];
     } while (NO);
 }
 

@@ -9,6 +9,7 @@
 #import "DCHViewModel.h"
 #import "DCHEventOperationTicket.h"
 #import "NSObject+DCHUUIDExtension.h"
+#import <Tourbillon/DCHTourbillon.h>
 
 @interface DCHViewModel ()
 

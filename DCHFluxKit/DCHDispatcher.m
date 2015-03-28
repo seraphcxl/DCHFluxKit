@@ -7,6 +7,7 @@
 //
 
 #import "DCHDispatcher.h"
+#import <Tourbillon/DCHTourbillon.h>
 
 @implementation DCHDispatcher
 

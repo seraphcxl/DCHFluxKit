@@ -8,6 +8,7 @@
 
 #import "DCHEventOperationTicket.h"
 #import "NSObject+DCHUUIDExtension.h"
+#import <Tourbillon/DCHTourbillon.h>
 
 @interface DCHEventOperationTicket ()
 

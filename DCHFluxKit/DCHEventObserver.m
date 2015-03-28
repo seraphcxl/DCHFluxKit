@@ -11,6 +11,7 @@
 #import "DCHIndexedArray.h"
 #import "NSObject+DCHUUIDExtension.h"
 #import "DCHEventOperationTicket.h"
+#import <Tourbillon/DCHTourbillon.h>
 
 @interface DCHEventObserver ()
 
