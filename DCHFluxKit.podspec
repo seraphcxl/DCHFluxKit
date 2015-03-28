@@ -17,10 +17,10 @@ Pod::Spec.new do |s|
 
   s.name         = "DCHFluxKit"
   s.version      = "0.1.1"
-  s.summary      = "A Flux Framework."
+  s.summary      = "A ObjC Flux Framework."
 
   s.description  = <<-DESC
-                   A Flux Framework.
+                   A ObjC Flux Framework for iOS.
                    DESC
 
   s.homepage     = "https://github.com/seraphcxl/DCHFluxKit"
