@@ -74,7 +74,9 @@
         if (!index || [index isEqualToString:@""]) {
             break;
         }
-        result = [self.IndexDic objectForKey:index];
+        if ([self.IndexDic objectForKey:index]) {
+            result = YES;
+        }
     } while (NO);
     return result;
 }
