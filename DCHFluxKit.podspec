@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DCHFluxKit"
-  s.version      = "0.1.1"
+  s.version      = "0.1.2"
   s.summary      = "A ObjC Flux Framework."
 
   s.description  = <<-DESC
@@ -134,6 +134,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
-  s.dependency "Tourbillon", "~> 1.0.1"
+  s.dependency "Tourbillon", "~> 1.0.2"
 
 end

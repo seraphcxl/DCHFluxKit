@@ -3,11 +3,11 @@
 
 target 'DCHFluxKit' do
 platform :ios, '7.0'
-pod 'Tourbillon', '~> 1.0.1'
+pod 'Tourbillon', '~> 1.0.2'
 end
 
 target 'DCHFluxKitTests' do
 platform :ios, '7.0'
-pod 'Tourbillon', '~> 1.0.1'
+pod 'Tourbillon', '~> 1.0.2'
 end
 

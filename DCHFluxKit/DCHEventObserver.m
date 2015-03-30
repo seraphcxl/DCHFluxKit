@@ -33,7 +33,9 @@
 - (void)dealloc {
     do {
         self.eventQueue = nil;
+        [self.eventOperationTicketDic threadSafe_uninit];
         self.eventOperationTicketDic = nil;
+        [self.eventDic threadSafe_uninit];
         self.eventDic = nil;
     } while (NO);
 }
@@ -41,9 +43,9 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.eventDic = [NSMutableDictionary dictionary];
+        self.eventDic = [[NSMutableDictionary dictionary] threadSafe_init:YES];
         self.eventQueue = dispatch_queue_create([[self createMemoryID] UTF8String], DISPATCH_QUEUE_CONCURRENT);
-        self.eventOperationTicketDic = [NSMutableDictionary dictionary];
+        self.eventOperationTicketDic = [[NSMutableDictionary dictionary] threadSafe_init:YES];
     }
     return self;
 }
@@ -56,7 +58,7 @@
         }
         
         NSString *eventUUID = [event UUID];
-        DCHIndexedArray *indexAry = [self.eventDic objectForKey:eventUUID];
+        DCHIndexedArray *indexAry = [self.eventDic threadSafe_objectForKey:eventUUID];
         if (!indexAry) {
             break;
         }
@@ -73,7 +75,7 @@
                     break;
                 }
                 NSString *eventUUID = [event UUID];
-                DCHIndexedArray *indexAry = [strongSelf.eventDic objectForKey:eventUUID];
+                DCHIndexedArray *indexAry = [strongSelf.eventDic threadSafe_objectForKey:eventUUID];
                 if (!indexAry || result.isCanceled) {
                     break;
                 }
@@ -98,7 +100,7 @@
             result.finished = YES;
             result.working = NO;
             if (strongSelf) {
-                [strongSelf.eventOperationTicketDic removeObjectForKey:[result UUID]];
+                [strongSelf.eventOperationTicketDic threadSafe_removeObjectForKey:[result UUID]];
             }
         };
         
@@ -106,14 +108,14 @@
             case DCHEventRunningType_Concurrent:
             {
                 dispatch_async(self.eventQueue, action);
-                [self.eventOperationTicketDic setObject:result forKey:[result UUID]];
+                [self.eventOperationTicketDic threadSafe_setObject:result forKey:[result UUID]];
             }
                 break;
             case DCHEventRunningType_Serial:
             default:
             {
                 dispatch_barrier_async(self.eventQueue, action);
-                [self.eventOperationTicketDic setObject:result forKey:[result UUID]];
+                [self.eventOperationTicketDic threadSafe_setObject:result forKey:[result UUID]];
             }
                 break;
         }
@@ -122,7 +124,7 @@
 }
 
 - (NSArray *)allEventsInQueue {
-    return [self.eventOperationTicketDic allValues];
+    return [self.eventOperationTicketDic threadSafe_allValues];
 }
 
 - (BOOL)addEventResponder:(id <DCHEventResponder>)eventResponder forEvent:(id <DCHEvent>)event {
@@ -156,7 +158,7 @@
             break;
         }
         NSString *eventUUID = [event UUID];
-        [self.eventDic removeObjectForKey:eventUUID];
+        [self.eventDic threadSafe_removeObjectForKey:eventUUID];
         result = YES;
     } while (NO);
     return result;
@@ -168,7 +170,7 @@
         if (eventResponder == nil) {
             break;
         }
-        NSArray *allKeys = [self.eventDic allKeys];
+        NSArray *allKeys = [self.eventDic threadSafe_allKeys];
         __block BOOL enumBlockResult = YES;
         [allKeys enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
             do {
@@ -197,12 +199,12 @@
             break;
         }
         
-        DCHIndexedArray *indexAry = [self.eventDic objectForKey:eventUUID];
+        DCHIndexedArray *indexAry = [self.eventDic threadSafe_objectForKey:eventUUID];
         NSString *idx = [(NSObject *)eventResponder createMemoryID];
         
         if (!indexAry) {
             indexAry = [[DCHIndexedArray alloc] init];
-            [self.eventDic setObject:indexAry forKey:eventUUID];
+            [self.eventDic threadSafe_setObject:indexAry forKey:eventUUID];
         }
         
         if (![indexAry containsObjectWithIndex:idx]) {
@@ -221,12 +223,12 @@
         if (eventResponder == nil || eventUUID == nil || ![eventResponder isKindOfClass:[NSObject class]]) {
             break;
         }
-        DCHIndexedArray *indexAry = [self.eventDic objectForKey:eventUUID];
+        DCHIndexedArray *indexAry = [self.eventDic threadSafe_objectForKey:eventUUID];
         if (indexAry) {
             NSString *idx = [(NSObject *)eventResponder createMemoryID];
             [indexAry removeObjectWithIndex:idx];
             if (indexAry.count == 0) {
-                [self.eventDic removeObjectForKey:eventUUID];
+                [self.eventDic threadSafe_removeObjectForKey:eventUUID];
             }
         }
         result = YES;
