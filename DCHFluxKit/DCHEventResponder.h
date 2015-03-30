@@ -24,6 +24,6 @@ typedef void(^DCHEventResponderCompletionHandler)(id eventResponder, id <DCHEven
 @property (nonatomic, copy) id <DCHEvent> outputEvent;
 
 - (DCHEventOperationTicket *)emitChange;
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event;
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread;
 
 @end

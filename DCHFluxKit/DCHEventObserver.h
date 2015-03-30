@@ -15,7 +15,7 @@
 
 @property (nonatomic, strong, readonly) NSMutableDictionary *eventOperationTicketDic;
 
-- (DCHEventOperationTicket *)handleEvent:(id <DCHEvent>)event withResponderCallback:(DCHEventResponderCompletionHandler)callback;
+- (DCHEventOperationTicket *)handleEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withResponderCallback:(DCHEventResponderCompletionHandler)callback;
 
 - (NSArray *)allEventsInQueue;
 

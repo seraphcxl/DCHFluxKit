@@ -39,16 +39,16 @@
 }
 
 - (DCHEventOperationTicket *)emitChange {
-    return [self emitChangeWithEvent:self.outputEvent];
+    return [self emitChangeWithEvent:self.outputEvent inMainThread:[NSThread isMainThread]];
 }
 
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event {
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread {
     DCHEventOperationTicket *result = nil;
     do {
         if (!event) {
             break;
         }
-        result = [self handleEvent:event withResponderCallback:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
+        result = [self handleEvent:event inMainThread:isInMainThread withResponderCallback:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
             if (error) {
                 NSLog(@"%@", error);
             }

@@ -17,7 +17,7 @@
     } while (NO);
 }
 
-- (NSArray *)handleEvent:(id <DCHEvent>)event withResponderCallback:(DCHEventResponderCompletionHandler)callback {
+- (NSArray *)handleEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withResponderCallback:(DCHEventResponderCompletionHandler)callback {
     NSArray *result = nil;
     do {
         if (!event) {
@@ -26,12 +26,12 @@
         
         NSMutableArray *tmpResult = [NSMutableArray array];
         
-        DCHEventOperationTicket *ticket = [super handleEvent:event withResponderCallback:callback];
+        DCHEventOperationTicket *ticket = [super handleEvent:event inMainThread:isInMainThread withResponderCallback:callback];
         if (ticket) {
             [tmpResult addObject:ticket];
         }
         if (self.parent) {
-            NSArray *tmpAry = [self.parent handleEvent:event withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+            NSArray *tmpAry = [self.parent handleEvent:event inMainThread:isInMainThread withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
                 if (callback) {
                     callback(eventResponder, outputEvent, error);
                 }

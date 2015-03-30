@@ -96,7 +96,7 @@
 
 - (void)test4Greeting {
     do {
-        NSArray *tickets = [self.dispatcher handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Hello] withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+        NSArray *tickets = [self.dispatcher handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Hello] inMainThread:NO withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
             if (error) {
                 NSLog(@"%@", [error description]);
             }
@@ -114,7 +114,7 @@
 
 - (void)test4Sum {
     do {
-        NSArray *tickets = [self.dispatcher handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Sum] withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+        NSArray *tickets = [self.dispatcher handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Sum] inMainThread:YES withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
             if (error) {
                 NSLog(@"%@", [error description]);
             }

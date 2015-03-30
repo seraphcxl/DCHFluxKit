@@ -50,10 +50,10 @@
 }
 
 - (DCHEventOperationTicket *)emitChange {
-    return [self emitChangeWithEvent:self.outputEvent];
+    return [self emitChangeWithEvent:self.outputEvent inMainThread:[NSThread isMainThread]];
 }
 
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event {
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread {
     __block DCHEventOperationTicket *result = nil;
     do {
         if (!event) {
@@ -88,17 +88,22 @@
             }
         };
         
+        dispatch_queue_t queue = self.eventQueue;
+        if (isInMainThread) {
+            queue = dispatch_get_main_queue();
+        }
+        
         switch ([event runningType]) {
             case DCHEventRunningType_Concurrent:
             {
-                dispatch_async(self.eventQueue, action);
+                dispatch_async(queue, action);
                 [self.eventOperationTicketDic threadSafe_setObject:result forKey:[result UUID]];
             }
                 break;
             case DCHEventRunningType_Serial:
             default:
             {
-                dispatch_barrier_async(self.eventQueue, action);
+                dispatch_barrier_async(queue, action);
                 [self.eventOperationTicketDic threadSafe_setObject:result forKey:[result UUID]];
             }
                 break;
