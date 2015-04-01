@@ -43,9 +43,9 @@
         self.name = @"Suise";
         [self.outputEvent setPayload:[NSDictionary dictionaryWithObject:@"Suise" forKey:@"Name"]];
         
-        completionHandler(self, event, nil);
+        completionHandler(self, self.outputEvent, nil);
         
-        [self emitChange];
+        [self emitChangeWithCompletionHandler:completionHandler];
         
         result = YES;
     } while (NO);

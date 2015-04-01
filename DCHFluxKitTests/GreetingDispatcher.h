@@ -7,7 +7,10 @@
 //
 
 #import <DCHFluxKit/DCHFluxKit.h>
+#import <Tourbillon/DCHTourbillon.h>
 
 @interface GreetingDispatcher : DCHDispatcher
+
+DCH_DEFINE_SINGLETON_FOR_HEADER(GreetingDispatcher)
 
 @end

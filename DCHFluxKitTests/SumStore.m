@@ -16,6 +16,10 @@
 
 @implementation SumStore
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"%@ %lu", [super description], (unsigned long)self.factor];
+}
+
 - (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     BOOL result = NO;
     do {
@@ -36,9 +40,9 @@
         }
         [self.outputEvent setPayload:[NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedLong:self.result] forKey:@"Num"]];
         
-        completionHandler(self, event, nil);
+        completionHandler(self, self.outputEvent, nil);
         
-        [self emitChange];
+        [self emitChangeWithCompletionHandler:completionHandler];
         
         result = YES;
     } while (NO);

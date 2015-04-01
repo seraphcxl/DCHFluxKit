@@ -36,6 +36,9 @@
 		8DCAAB741ABFAC3B00426FE6 /* DCHIndexedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */; };
 		8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */; };
 		8DE62BC41AC2850C00052C65 /* SumStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE62BC31AC2850C00052C65 /* SumStore.m */; };
+		8DFDAB721ACBD2DD00580FE3 /* DCHDispatcherHub.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFDAB701ACBD2DD00580FE3 /* DCHDispatcherHub.h */; };
+		8DFDAB731ACBD2DD00580FE3 /* DCHDispatcherHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFDAB711ACBD2DD00580FE3 /* DCHDispatcherHub.m */; };
+		8DFDAB761ACBD32600580FE3 /* GreetingDispatcherHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFDAB751ACBD32600580FE3 /* GreetingDispatcherHub.m */; };
 		BFD53D9EDAA8E67AB197E342 /* libPods-DCHFluxKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644AC2DC920598D4CD892556 /* libPods-DCHFluxKit.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +93,10 @@
 		8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHIndexedArray.m; sourceTree = "<group>"; };
 		8DE62BC21AC2850C00052C65 /* SumStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SumStore.h; sourceTree = "<group>"; };
 		8DE62BC31AC2850C00052C65 /* SumStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SumStore.m; sourceTree = "<group>"; };
+		8DFDAB701ACBD2DD00580FE3 /* DCHDispatcherHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHDispatcherHub.h; sourceTree = "<group>"; };
+		8DFDAB711ACBD2DD00580FE3 /* DCHDispatcherHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHDispatcherHub.m; sourceTree = "<group>"; };
+		8DFDAB741ACBD32600580FE3 /* GreetingDispatcherHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingDispatcherHub.h; sourceTree = "<group>"; };
+		8DFDAB751ACBD32600580FE3 /* GreetingDispatcherHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingDispatcherHub.m; sourceTree = "<group>"; };
 		965BE187DB70D0C73DD1A971 /* libPods-DCHFluxKitDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCHFluxKitDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB54308E05941E063E5B4783 /* Pods-DCHFluxKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DCHFluxKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-DCHFluxKit/Pods-DCHFluxKit.release.xcconfig"; sourceTree = "<group>"; };
 		B158A0EA6F4C092AE215C48A /* libPods-DCHFluxKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DCHFluxKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +152,8 @@
 				8D094F4C1ABEA836006EC21B /* DCHFluxKit.h */,
 				8D094F631ABEA847006EC21B /* DCHDispatcher.h */,
 				8D094F641ABEA847006EC21B /* DCHDispatcher.m */,
+				8DFDAB701ACBD2DD00580FE3 /* DCHDispatcherHub.h */,
+				8DFDAB711ACBD2DD00580FE3 /* DCHDispatcherHub.m */,
 				8D094F651ABEA847006EC21B /* DCHEvent.h */,
 				8D5A6E101AC18EDF0026CBD2 /* DCHEventOperationTicket.h */,
 				8D5A6E111AC18EDF0026CBD2 /* DCHEventOperationTicket.m */,
@@ -186,6 +195,8 @@
 				8D633CD81AC0F1F40085FCF4 /* GreetingEvent.m */,
 				8D633CDA1AC0F7520085FCF4 /* GreetingDispatcher.h */,
 				8D633CDB1AC0F7520085FCF4 /* GreetingDispatcher.m */,
+				8DFDAB741ACBD32600580FE3 /* GreetingDispatcherHub.h */,
+				8DFDAB751ACBD32600580FE3 /* GreetingDispatcherHub.m */,
 				8D633CDD1AC0F96F0085FCF4 /* GreetingStore.h */,
 				8D633CDE1AC0F96F0085FCF4 /* GreetingStore.m */,
 				8D633CE01AC0FEF60085FCF4 /* GreetingViewModel.h */,
@@ -235,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D094F4D1ABEA836006EC21B /* DCHFluxKit.h in Headers */,
+				8DFDAB721ACBD2DD00580FE3 /* DCHDispatcherHub.h in Headers */,
 				8D094F771ABEA847006EC21B /* DCHStore.h in Headers */,
 				8D094F731ABEA847006EC21B /* DCHEvent.h in Headers */,
 				8D094F761ABEA847006EC21B /* DCHEventResponder.h in Headers */,
@@ -420,6 +432,7 @@
 				8D094F7C1ABEA847006EC21B /* DCHWeakWarpper.m in Sources */,
 				8D633CF41AC12F250085FCF4 /* DCHViewModel.m in Sources */,
 				8D094F721ABEA847006EC21B /* DCHDispatcher.m in Sources */,
+				8DFDAB731ACBD2DD00580FE3 /* DCHDispatcherHub.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +446,7 @@
 				8D633CD61AC0F0B70085FCF4 /* GreetingActionCreater.m in Sources */,
 				8D633CE21AC0FEF60085FCF4 /* GreetingViewModel.m in Sources */,
 				8D633CD91AC0F1F40085FCF4 /* GreetingEvent.m in Sources */,
+				8DFDAB761ACBD32600580FE3 /* GreetingDispatcherHub.m in Sources */,
 				8D633CDC1AC0F7520085FCF4 /* GreetingDispatcher.m in Sources */,
 				8DE62BC41AC2850C00052C65 /* SumStore.m in Sources */,
 			);

@@ -46,7 +46,7 @@
 }
 
 - (NSString *)eventDescription {
-    return [NSString stringWithFormat:@"%@: %@", [self UUID], [super description]];
+    return [NSString stringWithFormat:@"%@: %@ payload: %@", [self UUID], [super description], [self payload]];
 }
 
 - (id <NSCopying>)payload {

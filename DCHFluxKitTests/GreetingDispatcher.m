@@ -10,4 +10,6 @@
 
 @implementation GreetingDispatcher
 
+DCH_DEFINE_SINGLETON_FOR_CLASS(GreetingDispatcher)
+
 @end

@@ -10,8 +10,4 @@
 
 @interface DCHDispatcher : DCHEventObserver
 
-@property (nonatomic, weak) DCHDispatcher *parent;
-
-- (NSArray *)handleEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withResponderCallback:(DCHEventResponderCompletionHandler)callback;
-
 @end

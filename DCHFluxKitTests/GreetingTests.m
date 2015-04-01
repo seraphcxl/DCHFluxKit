@@ -11,6 +11,7 @@
 
 #import "GreetingActionCreater.h"
 #import "GreetingDispatcher.h"
+#import "GreetingDispatcherHub.h"
 #import "GreetingEvent.h"
 #import "GreetingStore.h"
 #import "GreetingViewModel.h"
@@ -20,7 +21,6 @@
 
 @interface GreetingTests : XCTestCase
 
-@property (nonatomic, strong) GreetingDispatcher *dispatcher;
 @property (nonatomic, strong) GreetingStore *store;
 @property (nonatomic, strong) GreetingViewModel *viewModel;
 @property (nonatomic, strong) NSMutableArray *sumStores;
@@ -34,14 +34,13 @@
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
     self.num = 99;
-    self.dispatcher = [[GreetingDispatcher alloc] init];
     self.store = [[GreetingStore alloc] init];
     self.viewModel = [[GreetingViewModel alloc] init];
     self.sumStores = [NSMutableArray array];
     
     id <DCHEvent> event = [GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Hello];
     
-    [self.dispatcher addEventResponder:self.store forEvent:event];
+    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:self.store forEvent:event];
     [self.store addEventResponder:self.viewModel forEvent:event];
     
     id <DCHEvent> sumEvent = [GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Sum];
@@ -52,13 +51,27 @@
     SumStore *sumStore2 = [[SumStore alloc] init];
     sumStore2.factor = 3;
     
-    [self.sumStores addObject:sumStore0];
-    [self.sumStores addObject:sumStore1];
     [self.sumStores addObject:sumStore2];
+    [self.sumStores addObject:sumStore1];
+    [self.sumStores addObject:sumStore0];
+    
+    NSLog(@"sumStore0: %@", sumStore0);
+    NSLog(@"sumStore1: %@", sumStore1);
+    NSLog(@"sumStore2: %@", sumStore2);
+    
+    SumStore *sumStore3 = [[SumStore alloc] init];
+    sumStore3.factor = 5;
+    [self.sumStores addObject:sumStore3];
+    
+    NSLog(@"sumStore3: %@", sumStore3);
     
     [sumStore2 respondEvent:sumEvent dependOn:sumStore1];
     [sumStore1 respondEvent:sumEvent dependOn:sumStore0];
-    [self.dispatcher addEventResponder:sumStore0 forEvent:sumEvent];
+    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:sumStore0 forEvent:sumEvent];
+    
+    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:sumStore3 forEvent:sumEvent];
+    
+    [[GreetingDispatcherHub sharedGreetingDispatcherHub] addDispatcher:[GreetingDispatcher sharedGreetingDispatcher]];
 }
 
 - (void)tearDown {
@@ -66,10 +79,10 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
-}
+//- (void)testExample {
+//    // This is an example of a functional test case.
+//    XCTAssert(YES, @"Pass");
+//}
 
 //- (void)testPerformanceExample0 {
 //    // This is an example of a performance test case.
@@ -96,9 +109,11 @@
 
 - (void)test4Greeting {
     do {
-        NSArray *tickets = [self.dispatcher handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Hello] inMainThread:NO withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+        NSArray *tickets = [[GreetingDispatcherHub sharedGreetingDispatcherHub] handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Hello] inMainThread:NO withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
             if (error) {
                 NSLog(@"%@", [error description]);
+            } else {
+                NSLog(@"Responder: %@; Event: %@;", eventResponder, [outputEvent eventDescription]);
             }
         }];
         
@@ -109,22 +124,27 @@
         } withCompletionHandler:^(BOOL promiseResult, NSError *error, NSDictionary *infoDic) {
             NSLog(@"PromiseResult: %d, Error: %@, Info: %@", promiseResult, error, infoDic);
         }];
-    } while (NO);
-}
-
-- (void)test4Sum {
-    do {
-        NSArray *tickets = [self.dispatcher handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Sum] inMainThread:YES withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+        
+        NSArray *tickets1 = [[GreetingDispatcherHub sharedGreetingDispatcherHub] handleEvent:[GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Sum] inMainThread:YES withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
             if (error) {
                 NSLog(@"%@", [error description]);
+            } else {
+                NSLog(@"Responder: %@; Event: %@;", eventResponder, [outputEvent eventDescription]);
             }
         }];
         
-        NSLog(@"handle event over with tickets: %@", tickets);
+        NSLog(@"handle event over with tickets: %@", tickets1);
+        
+        [DCHAsyncTest expect:^BOOL{
+            SumStore *sumStore = self.sumStores.firstObject;
+            return sumStore.result == 6;
+        } withCompletionHandler:^(BOOL promiseResult, NSError *error, NSDictionary *infoDic) {
+            NSLog(@"PromiseResult: %d, Error: %@, Info: %@", promiseResult, error, infoDic);
+        }];
         
         [DCHAsyncTest expect:^BOOL{
             SumStore *sumStore = self.sumStores.lastObject;
-            return sumStore.result == 6;
+            return sumStore.result == 5;
         } withCompletionHandler:^(BOOL promiseResult, NSError *error, NSDictionary *infoDic) {
             NSLog(@"PromiseResult: %d, Error: %@, Info: %@", promiseResult, error, infoDic);
         }];

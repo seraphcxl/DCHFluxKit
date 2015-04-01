@@ -11,41 +11,4 @@
 
 @implementation DCHDispatcher
 
-- (void)dealloc {
-    do {
-        self.parent = nil;        
-    } while (NO);
-}
-
-- (NSArray *)handleEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withResponderCallback:(DCHEventResponderCompletionHandler)callback {
-    NSArray *result = nil;
-    do {
-        if (!event) {
-            break;
-        }
-        
-        NSMutableArray *tmpResult = [NSMutableArray array];
-        
-        DCHEventOperationTicket *ticket = [super handleEvent:event inMainThread:isInMainThread withResponderCallback:callback];
-        if (ticket) {
-            [tmpResult addObject:ticket];
-        }
-        if (self.parent) {
-            NSArray *tmpAry = [self.parent handleEvent:event inMainThread:isInMainThread withResponderCallback:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
-                if (callback) {
-                    callback(eventResponder, outputEvent, error);
-                }
-            }];
-            if (tmpAry) {
-                [tmpResult addObjectsFromArray:tmpAry];
-            }
-        }
-        
-        if (tmpResult && tmpResult.count > 0) {
-            result = tmpResult;
-        }
-    } while (NO);
-    return result;
-}
-
 @end
