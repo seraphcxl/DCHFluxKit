@@ -12,6 +12,7 @@
 #import "NSObject+DCHUUIDExtension.h"
 #import "DCHEventOperationTicket.h"
 #import <Tourbillon/DCHTourbillon.h>
+#import <libextobjc/EXTScope.h>
 
 @interface DCHEventObserver ()
 
@@ -65,17 +66,14 @@
             
         result = [[DCHEventOperationTicket alloc] initWithEvent:event];
         
-        __weak typeof(self) weakSelf = self;
+        @weakify(self);
         dispatch_block_t action = ^{
             result.working = YES;
             result.finished = NO;
-            typeof(self) strongSelf = weakSelf;
+            @strongify(self);
             do {
-                if (!strongSelf) {
-                    break;
-                }
                 NSString *eventUUID = [event UUID];
-                DCHIndexedArray *indexAry = [strongSelf.eventDic threadSafe_objectForKey:eventUUID];
+                DCHIndexedArray *indexAry = [self.eventDic threadSafe_objectForKey:eventUUID];
                 if (!indexAry || result.isCanceled) {
                     break;
                 }
@@ -88,7 +86,7 @@
                         DCHWeakWarpper *weakWarpper = (DCHWeakWarpper *)obj;
                         id <DCHEventResponder> eventResponder = weakWarpper.object;
                         if (eventResponder) {
-                            [eventResponder respondEvent:event from:strongSelf withCompletionHandler:^(id eventReponder, id <DCHEvent> outputEvent, NSError *error) {
+                            [eventResponder respondEvent:event from:self withCompletionHandler:^(id eventReponder, id <DCHEvent> outputEvent, NSError *error) {
                                 if (callback) {
                                     callback(eventResponder, outputEvent, error);
                                 }
@@ -99,8 +97,8 @@
             } while (NO);
             result.finished = YES;
             result.working = NO;
-            if (strongSelf) {
-                [strongSelf.eventOperationTicketDic threadSafe_removeObjectForKey:[result UUID]];
+            if (self) {
+                [self.eventOperationTicketDic threadSafe_removeObjectForKey:[result UUID]];
             }
         };
         

@@ -10,6 +10,7 @@
 #import "DCHEventOperationTicket.h"
 #import "NSObject+DCHUUIDExtension.h"
 #import <Tourbillon/DCHTourbillon.h>
+#import <libextobjc/EXTScope.h>
 
 @interface DCHViewModel ()
 
@@ -62,20 +63,16 @@
         
         result = [[DCHEventOperationTicket alloc] initWithEvent:event];
         
-        __weak typeof(self) weakSelf = self;
+        @weakify(self);
         dispatch_block_t action = ^{
             result.working = YES;
             result.finished = NO;
-            typeof(self) strongSelf = weakSelf;
+            @strongify(self);
             do {
-                
-                if (!strongSelf) {
-                    break;
-                }
                 if (result.isCanceled) {
                     break;
                 }
-                [strongSelf.eventResponder respondEvent:event from:strongSelf withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
+                [self.eventResponder respondEvent:event from:self withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
                     if (error) {
                         NSLog(@"%@", error);
                     }
@@ -83,8 +80,8 @@
             } while (NO);
             result.finished = YES;
             result.working = NO;
-            if (strongSelf) {
-                [strongSelf.eventOperationTicketDic threadSafe_removeObjectForKey:[result UUID]];
+            if (self) {
+                [self.eventOperationTicketDic threadSafe_removeObjectForKey:[result UUID]];
             }
         };
         
