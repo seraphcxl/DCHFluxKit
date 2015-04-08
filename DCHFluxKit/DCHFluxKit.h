@@ -17,10 +17,12 @@ FOUNDATION_EXPORT const unsigned char DCHFluxKitVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <DCHFluxKit/PublicHeader.h>
 
 #import "DCHEvent.h"
+#import "DCHEventCreater.h"
 #import "DCHEventResponder.h"
 #import "DCHEventOperationTicket.h"
 #import "DCHEventObserver.h"
 #import "DCHDispatcher.h"
+#import "DCHDispatcherHub.h"
 #import "DCHStore.h"
 #import "DCHViewModel.h"
 #import "UIViewController+DCHFluxKit.h"

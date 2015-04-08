@@ -17,4 +17,8 @@ NSString * const GreetingActionDomain = @"GreetingActionDomain";
     return [[GreetingEvent alloc] initWithUUID:nil Domain:domain code:code runningType:DCHEventRunningType_Concurrent andPayload:nil];
 }
 
++ (id <DCHEvent>)createEventWithUUID:(NSString *)uuid Domain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload {
+    return [[GreetingEvent alloc] initWithUUID:uuid Domain:domain code:code runningType:runningType andPayload:payload];
+}
+
 @end

@@ -33,10 +33,11 @@
 		8D633CE41AC1024D0085FCF4 /* GreetingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CE31AC1024D0085FCF4 /* GreetingTests.m */; };
 		8D633CF31AC12F250085FCF4 /* DCHViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D633CF11AC12F250085FCF4 /* DCHViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D633CF41AC12F250085FCF4 /* DCHViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CF21AC12F250085FCF4 /* DCHViewModel.m */; };
+		8DAC4CA31AD4FCD800C1B80D /* DCHEventCreater.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DAC4CA21AD4FCD800C1B80D /* DCHEventCreater.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DCAAB741ABFAC3B00426FE6 /* DCHIndexedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */; };
 		8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */; };
 		8DE62BC41AC2850C00052C65 /* SumStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE62BC31AC2850C00052C65 /* SumStore.m */; };
-		8DFDAB721ACBD2DD00580FE3 /* DCHDispatcherHub.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFDAB701ACBD2DD00580FE3 /* DCHDispatcherHub.h */; };
+		8DFDAB721ACBD2DD00580FE3 /* DCHDispatcherHub.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DFDAB701ACBD2DD00580FE3 /* DCHDispatcherHub.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DFDAB731ACBD2DD00580FE3 /* DCHDispatcherHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFDAB711ACBD2DD00580FE3 /* DCHDispatcherHub.m */; };
 		8DFDAB761ACBD32600580FE3 /* GreetingDispatcherHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DFDAB751ACBD32600580FE3 /* GreetingDispatcherHub.m */; };
 		BFD53D9EDAA8E67AB197E342 /* libPods-DCHFluxKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 644AC2DC920598D4CD892556 /* libPods-DCHFluxKit.a */; };
@@ -89,6 +90,7 @@
 		8D633CE31AC1024D0085FCF4 /* GreetingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingTests.m; sourceTree = "<group>"; };
 		8D633CF11AC12F250085FCF4 /* DCHViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHViewModel.h; sourceTree = "<group>"; };
 		8D633CF21AC12F250085FCF4 /* DCHViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHViewModel.m; sourceTree = "<group>"; };
+		8DAC4CA21AD4FCD800C1B80D /* DCHEventCreater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHEventCreater.h; sourceTree = "<group>"; };
 		8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHIndexedArray.h; sourceTree = "<group>"; };
 		8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHIndexedArray.m; sourceTree = "<group>"; };
 		8DE62BC21AC2850C00052C65 /* SumStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SumStore.h; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				8DFDAB701ACBD2DD00580FE3 /* DCHDispatcherHub.h */,
 				8DFDAB711ACBD2DD00580FE3 /* DCHDispatcherHub.m */,
 				8D094F651ABEA847006EC21B /* DCHEvent.h */,
+				8DAC4CA21AD4FCD800C1B80D /* DCHEventCreater.h */,
 				8D5A6E101AC18EDF0026CBD2 /* DCHEventOperationTicket.h */,
 				8D5A6E111AC18EDF0026CBD2 /* DCHEventOperationTicket.m */,
 				8D094F661ABEA847006EC21B /* DCHEventObserver.h */,
@@ -246,14 +249,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D094F4D1ABEA836006EC21B /* DCHFluxKit.h in Headers */,
-				8DFDAB721ACBD2DD00580FE3 /* DCHDispatcherHub.h in Headers */,
 				8D094F771ABEA847006EC21B /* DCHStore.h in Headers */,
 				8D094F731ABEA847006EC21B /* DCHEvent.h in Headers */,
 				8D094F761ABEA847006EC21B /* DCHEventResponder.h in Headers */,
 				8D094F7D1ABEA847006EC21B /* UIViewController+DCHFluxKit.h in Headers */,
 				8DCAAB741ABFAC3B00426FE6 /* DCHIndexedArray.h in Headers */,
 				8D633CF31AC12F250085FCF4 /* DCHViewModel.h in Headers */,
+				8DAC4CA31AD4FCD800C1B80D /* DCHEventCreater.h in Headers */,
 				8D094F741ABEA847006EC21B /* DCHEventObserver.h in Headers */,
+				8DFDAB721ACBD2DD00580FE3 /* DCHDispatcherHub.h in Headers */,
 				8D5A6E121AC18EDF0026CBD2 /* DCHEventOperationTicket.h in Headers */,
 				8D094F7B1ABEA847006EC21B /* DCHWeakWarpper.h in Headers */,
 				8D094F711ABEA847006EC21B /* DCHDispatcher.h in Headers */,
