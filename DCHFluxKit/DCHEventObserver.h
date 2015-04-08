@@ -27,4 +27,6 @@
 
 - (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder;
 
+- (NSArray *)handlingEvents;
+
 @end

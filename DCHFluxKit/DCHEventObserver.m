@@ -194,6 +194,10 @@
     return result;
 }
 
+- (NSArray *)handlingEvents {
+    return [self.eventDic threadSafe_allKeys];
+}
+
 #pragma mark - Private
 - (BOOL)addEventResponder:(id <DCHEventResponder>)eventResponder forEventUUID:(NSString *)eventUUID {
     BOOL result = NO;
