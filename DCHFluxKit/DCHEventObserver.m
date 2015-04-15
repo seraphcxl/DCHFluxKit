@@ -142,6 +142,18 @@
     return result;
 }
 
+- (BOOL)addEventResponder:(id<DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode {
+    BOOL result = NO;
+    do {
+        if (eventResponder == nil || eventDomain == nil || [eventDomain isEqualToString:@""] || ![eventResponder isKindOfClass:[NSObject class]]) {
+            break;
+        }
+        
+        result = [self addEventResponder:eventResponder forEventUUID:[DCHEvent createUUIDByDomain:eventDomain andCode:eventCode]];
+    } while (NO);
+    return result;
+}
+
 - (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder forEvent:(id <DCHEvent>)event {
     BOOL result = NO;
     do {
@@ -154,6 +166,18 @@
     return result;
 }
 
+- (BOOL)removeEventResponder:(id<DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode {
+    BOOL result = NO;
+    do {
+        if (eventResponder == nil || eventDomain == nil || [eventDomain isEqualToString:@""] || ![eventResponder isKindOfClass:[NSObject class]]) {
+            break;
+        }
+        
+        result = [self removeEventResponder:eventResponder forEventUUID:[DCHEvent createUUIDByDomain:eventDomain andCode:eventCode]];
+    } while (NO);
+    return result;
+}
+
 - (BOOL)removeAllRespondersForEvent:(id <DCHEvent>)event {
     BOOL result = NO;
     do {
@@ -161,6 +185,19 @@
             break;
         }
         NSString *eventUUID = [event UUID];
+        [self.eventDic threadSafe_removeObjectForKey:eventUUID];
+        result = YES;
+    } while (NO);
+    return result;
+}
+
+- (BOOL)removeAllRespondersForEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode {
+    BOOL result = NO;
+    do {
+        if (eventDomain == nil || [eventDomain isEqualToString:@""]) {
+            break;
+        }
+        NSString *eventUUID = [DCHEvent createUUIDByDomain:eventDomain andCode:eventCode];
         [self.eventDic threadSafe_removeObjectForKey:eventUUID];
         result = YES;
     } while (NO);

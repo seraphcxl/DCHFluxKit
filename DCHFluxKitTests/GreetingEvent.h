@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <DCHFluxKit/DCHFluxKit.h>
 
-@interface GreetingEvent : NSObject <DCHEvent>
+@interface GreetingEvent : DCHEvent
 
 @end

@@ -12,6 +12,6 @@
 
 @protocol DCHEventCreater <NSObject>
 
-+ (id <DCHEvent>)createEventWithUUID:(NSString *)uuid Domain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
++ (id <DCHEvent>)createEventWithDomain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
 
 @end

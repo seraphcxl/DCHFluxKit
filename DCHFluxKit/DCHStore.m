@@ -38,6 +38,17 @@
     return result;
 }
 
+- (BOOL)respondEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode dependOn:(DCHStore *)store {
+    BOOL result = NO;
+    do {
+        if (!eventDomain || [eventDomain isEqualToString:@""] || !store || self == store) {
+            break;
+        }
+        result = [store addEventResponder:self forEventDomain:eventDomain code:eventCode];
+    } while (NO);
+    return result;
+}
+
 - (DCHEventOperationTicket *)emitChange {
     return [self emitChangeWithEvent:self.outputEvent inMainThread:[NSThread isMainThread] withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
         ;

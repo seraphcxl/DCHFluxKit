@@ -19,6 +19,6 @@ typedef NS_ENUM(NSUInteger, GreetingActionCode) {
 @interface GreetingActionCreater : NSObject <DCHEventCreater>
 
 + (id <DCHEvent>)createActionWithDomain:(NSString *)domain andCode:(NSUInteger)code;
-+ (id <DCHEvent>)createEventWithUUID:(NSString *)uuid Domain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
++ (id <DCHEvent>)createEventWithDomain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
 
 @end

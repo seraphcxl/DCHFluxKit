@@ -13,4 +13,6 @@
 
 - (BOOL)respondEvent:(id <DCHEvent>)event dependOn:(DCHStore *)store;
 
+- (BOOL)respondEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode dependOn:(DCHStore *)store;
+
 @end

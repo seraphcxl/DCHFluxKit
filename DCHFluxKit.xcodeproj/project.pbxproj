@@ -13,7 +13,6 @@
 		8D094F5A1ABEA837006EC21B /* DCHFluxKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D094F591ABEA837006EC21B /* DCHFluxKitTests.m */; };
 		8D094F711ABEA847006EC21B /* DCHDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D094F631ABEA847006EC21B /* DCHDispatcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D094F721ABEA847006EC21B /* DCHDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D094F641ABEA847006EC21B /* DCHDispatcher.m */; };
-		8D094F731ABEA847006EC21B /* DCHEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D094F651ABEA847006EC21B /* DCHEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D094F741ABEA847006EC21B /* DCHEventObserver.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D094F661ABEA847006EC21B /* DCHEventObserver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D094F751ABEA847006EC21B /* DCHEventObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D094F671ABEA847006EC21B /* DCHEventObserver.m */; };
 		8D094F761ABEA847006EC21B /* DCHEventResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D094F681ABEA847006EC21B /* DCHEventResponder.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -34,6 +33,8 @@
 		8D633CF31AC12F250085FCF4 /* DCHViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D633CF11AC12F250085FCF4 /* DCHViewModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8D633CF41AC12F250085FCF4 /* DCHViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D633CF21AC12F250085FCF4 /* DCHViewModel.m */; };
 		8DAC4CA31AD4FCD800C1B80D /* DCHEventCreater.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DAC4CA21AD4FCD800C1B80D /* DCHEventCreater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBF59A41ADE0031003A1358 /* DCHEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DBF59A21ADE0031003A1358 /* DCHEvent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8DBF59A51ADE0031003A1358 /* DCHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF59A31ADE0031003A1358 /* DCHEvent.m */; };
 		8DCAAB741ABFAC3B00426FE6 /* DCHIndexedArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */; };
 		8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */; };
 		8DE62BC41AC2850C00052C65 /* SumStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DE62BC31AC2850C00052C65 /* SumStore.m */; };
@@ -65,7 +66,6 @@
 		8D094F591ABEA837006EC21B /* DCHFluxKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DCHFluxKitTests.m; sourceTree = "<group>"; };
 		8D094F631ABEA847006EC21B /* DCHDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHDispatcher.h; sourceTree = "<group>"; };
 		8D094F641ABEA847006EC21B /* DCHDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHDispatcher.m; sourceTree = "<group>"; };
-		8D094F651ABEA847006EC21B /* DCHEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHEvent.h; sourceTree = "<group>"; };
 		8D094F661ABEA847006EC21B /* DCHEventObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHEventObserver.h; sourceTree = "<group>"; };
 		8D094F671ABEA847006EC21B /* DCHEventObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHEventObserver.m; sourceTree = "<group>"; };
 		8D094F681ABEA847006EC21B /* DCHEventResponder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHEventResponder.h; sourceTree = "<group>"; };
@@ -91,6 +91,8 @@
 		8D633CF11AC12F250085FCF4 /* DCHViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHViewModel.h; sourceTree = "<group>"; };
 		8D633CF21AC12F250085FCF4 /* DCHViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHViewModel.m; sourceTree = "<group>"; };
 		8DAC4CA21AD4FCD800C1B80D /* DCHEventCreater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHEventCreater.h; sourceTree = "<group>"; };
+		8DBF59A21ADE0031003A1358 /* DCHEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHEvent.h; sourceTree = "<group>"; };
+		8DBF59A31ADE0031003A1358 /* DCHEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHEvent.m; sourceTree = "<group>"; };
 		8DCAAB721ABFAC3B00426FE6 /* DCHIndexedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCHIndexedArray.h; sourceTree = "<group>"; };
 		8DCAAB731ABFAC3B00426FE6 /* DCHIndexedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCHIndexedArray.m; sourceTree = "<group>"; };
 		8DE62BC21AC2850C00052C65 /* SumStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SumStore.h; sourceTree = "<group>"; };
@@ -156,7 +158,8 @@
 				8D094F641ABEA847006EC21B /* DCHDispatcher.m */,
 				8DFDAB701ACBD2DD00580FE3 /* DCHDispatcherHub.h */,
 				8DFDAB711ACBD2DD00580FE3 /* DCHDispatcherHub.m */,
-				8D094F651ABEA847006EC21B /* DCHEvent.h */,
+				8DBF59A21ADE0031003A1358 /* DCHEvent.h */,
+				8DBF59A31ADE0031003A1358 /* DCHEvent.m */,
 				8DAC4CA21AD4FCD800C1B80D /* DCHEventCreater.h */,
 				8D5A6E101AC18EDF0026CBD2 /* DCHEventOperationTicket.h */,
 				8D5A6E111AC18EDF0026CBD2 /* DCHEventOperationTicket.m */,
@@ -250,7 +253,6 @@
 			files = (
 				8D094F4D1ABEA836006EC21B /* DCHFluxKit.h in Headers */,
 				8D094F771ABEA847006EC21B /* DCHStore.h in Headers */,
-				8D094F731ABEA847006EC21B /* DCHEvent.h in Headers */,
 				8D094F761ABEA847006EC21B /* DCHEventResponder.h in Headers */,
 				8D094F7D1ABEA847006EC21B /* UIViewController+DCHFluxKit.h in Headers */,
 				8DCAAB741ABFAC3B00426FE6 /* DCHIndexedArray.h in Headers */,
@@ -258,6 +260,7 @@
 				8DAC4CA31AD4FCD800C1B80D /* DCHEventCreater.h in Headers */,
 				8D094F741ABEA847006EC21B /* DCHEventObserver.h in Headers */,
 				8DFDAB721ACBD2DD00580FE3 /* DCHDispatcherHub.h in Headers */,
+				8DBF59A41ADE0031003A1358 /* DCHEvent.h in Headers */,
 				8D5A6E121AC18EDF0026CBD2 /* DCHEventOperationTicket.h in Headers */,
 				8D094F7B1ABEA847006EC21B /* DCHWeakWarpper.h in Headers */,
 				8D094F711ABEA847006EC21B /* DCHDispatcher.h in Headers */,
@@ -428,6 +431,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DBF59A51ADE0031003A1358 /* DCHEvent.m in Sources */,
 				8D094F7E1ABEA847006EC21B /* UIViewController+DCHFluxKit.m in Sources */,
 				8DCAAB751ABFAC3B00426FE6 /* DCHIndexedArray.m in Sources */,
 				8D094F781ABEA847006EC21B /* DCHStore.m in Sources */,

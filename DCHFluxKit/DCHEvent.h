@@ -2,7 +2,7 @@
 //  DCHEvent.h
 //  DCHFluxKit
 //
-//  Created by Derek Chen on 3/21/15.
+//  Created by Derek Chen on 4/15/15.
 //  Copyright (c) 2015 seraphcxl. All rights reserved.
 //
 
@@ -28,9 +28,15 @@ typedef NS_ENUM(NSUInteger, DCHEventRunningType) {
 
 - (id <NSCopying>)payload;
 
-- (instancetype)initWithUUID:(NSString *)uuid Domain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
+- (instancetype)initWithDomain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
 
 @optional
 - (void)setPayload:(id <NSCopying>)newPayload;
+
+@end
+
+@interface DCHEvent : NSObject <DCHEvent>
+
++ (NSString *)createUUIDByDomain:(NSString *)domain andCode:(NSUInteger)code;
 
 @end

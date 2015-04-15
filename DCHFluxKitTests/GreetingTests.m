@@ -38,12 +38,12 @@
     self.viewModel = [[GreetingViewModel alloc] init];
     self.sumStores = [NSMutableArray array];
     
-    id <DCHEvent> event = [GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Hello];
+//    id <DCHEvent> event = [GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Hello];
     
-    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:self.store forEvent:event];
-    [self.store addEventResponder:self.viewModel forEvent:event];
+    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:self.store forEventDomain:GreetingActionDomain code:GreetingActionCode_Hello];
+    [self.store addEventResponder:self.viewModel forEventDomain:GreetingActionDomain code:GreetingActionCode_Hello];
     
-    id <DCHEvent> sumEvent = [GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Sum];
+//    id <DCHEvent> sumEvent = [GreetingActionCreater createActionWithDomain:GreetingActionDomain andCode:GreetingActionCode_Sum];
     SumStore *sumStore0 = [[SumStore alloc] init];
     sumStore0.factor = 1;
     SumStore *sumStore1 = [[SumStore alloc] init];
@@ -65,11 +65,11 @@
     
     NSLog(@"sumStore3: %@", sumStore3);
     
-    [sumStore2 respondEvent:sumEvent dependOn:sumStore1];
-    [sumStore1 respondEvent:sumEvent dependOn:sumStore0];
-    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:sumStore0 forEvent:sumEvent];
+    [sumStore2 respondEventDomain:GreetingActionDomain code:GreetingActionCode_Sum dependOn:sumStore1];
+    [sumStore1 respondEventDomain:GreetingActionDomain code:GreetingActionCode_Sum dependOn:sumStore0];
+    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:sumStore0 forEventDomain:GreetingActionDomain code:GreetingActionCode_Sum];
     
-    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:sumStore3 forEvent:sumEvent];
+    [[GreetingDispatcher sharedGreetingDispatcher] addEventResponder:sumStore3 forEventDomain:GreetingActionDomain code:GreetingActionCode_Sum];
     
     [[GreetingDispatcherHub sharedGreetingDispatcherHub] addDispatcher:[GreetingDispatcher sharedGreetingDispatcher]];
 }

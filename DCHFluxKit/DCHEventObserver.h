@@ -21,9 +21,15 @@
 
 - (BOOL)addEventResponder:(id <DCHEventResponder>)eventResponder forEvent:(id <DCHEvent>)event;
 
+- (BOOL)addEventResponder:(id <DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode;
+
 - (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder forEvent:(id <DCHEvent>)event;
 
+- (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode;
+
 - (BOOL)removeAllRespondersForEvent:(id <DCHEvent>)event;
+
+- (BOOL)removeAllRespondersForEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode;
 
 - (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder;
 
