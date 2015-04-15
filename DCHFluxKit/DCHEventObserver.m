@@ -103,7 +103,7 @@
         };
         
         dispatch_queue_t queue = self.eventQueue;
-        if (isInMainThread) {
+        if (isInMainThread || [event mainThreadRequired]) {
             queue = dispatch_get_main_queue();
         }
         

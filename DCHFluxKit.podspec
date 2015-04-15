@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DCHFluxKit"
-  s.version      = "0.1.6"
+  s.version      = "0.1.7"
   s.summary      = "A ObjC Flux Framework."
 
   s.description  = <<-DESC

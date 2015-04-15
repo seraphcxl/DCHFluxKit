@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString *domainStr;
 @property (nonatomic, assign) NSUInteger codeNum;
+@property (nonatomic, assign) BOOL mainThreadRequiredSign;
 @property (nonatomic, assign) DCHEventRunningType runningTypeEnum;
 @property (nonatomic, strong) id <NSCopying> payloadObj;
 
@@ -49,6 +50,10 @@
     return self.codeNum;
 }
 
+- (BOOL)mainThreadRequired {
+    return self.mainThreadRequiredSign;
+}
+
 - (DCHEventRunningType)runningType {
     return self.runningTypeEnum;
 }
@@ -61,11 +66,12 @@
     return self.payloadObj;
 }
 
-- (instancetype)initWithDomain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload {
+- (instancetype)initWithDomain:(NSString *)domain code:(NSUInteger)code mainThreadRequired:(BOOL)mainThreadRequired runningType:(DCHEventRunningType)runningType andPayload:(id<NSCopying>)payload {
     self = [super init];
     if (self) {
         self.domainStr = domain;
         self.codeNum = code;
+        self.mainThreadRequiredSign = mainThreadRequired;
         self.runningTypeEnum = runningType;
         self.payloadObj = payload;
     }
@@ -77,7 +83,7 @@
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    return [[[self class] alloc] initWithDomain:self.domain code:self.code runningType:DCHEventRunningType_Concurrent andPayload:self.payload];
+    return [[[self class] alloc] initWithDomain:[self domain] code:[self code] mainThreadRequired:[self mainThreadRequired] runningType:[self runningType] andPayload:[self payload]];
 }
 
 @end

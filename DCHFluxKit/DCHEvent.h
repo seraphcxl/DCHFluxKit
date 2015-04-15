@@ -22,13 +22,15 @@ typedef NS_ENUM(NSUInteger, DCHEventRunningType) {
 
 - (NSUInteger)code;
 
+- (BOOL)mainThreadRequired;
+
 - (DCHEventRunningType)runningType;
 
 - (NSString *)eventDescription;
 
 - (id <NSCopying>)payload;
 
-- (instancetype)initWithDomain:(NSString *)domain code:(NSUInteger)code runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
+- (instancetype)initWithDomain:(NSString *)domain code:(NSUInteger)code mainThreadRequired:(BOOL)mainThreadRequired runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload;
 
 @optional
 - (void)setPayload:(id <NSCopying>)newPayload;
