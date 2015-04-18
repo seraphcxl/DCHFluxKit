@@ -9,9 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "DCHEvent.h"
 
+@class DCHEventObserver;
+
 @interface DCHEventOperationTicket : NSObject
 
 @property (nonatomic, copy, readonly) id <DCHEvent> event;
+
+@property (nonatomic, weak, readonly) id eventHandler;
 
 @property (nonatomic, assign, getter=isWorking) BOOL working;
 
@@ -19,7 +23,7 @@
 
 @property (nonatomic, assign, getter=isFinished) BOOL finished;
 
-- (instancetype)initWithEvent:(id <DCHEvent>)event;
+- (instancetype)initWithEvent:(id <DCHEvent>)event andHandler:(id)handler;
 
 - (NSString *)UUID;
 

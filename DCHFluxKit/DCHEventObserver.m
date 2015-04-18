@@ -9,7 +9,6 @@
 #import "DCHEventObserver.h"
 #import "DCHWeakWarpper.h"
 #import "DCHIndexedArray.h"
-#import "NSObject+DCHUUIDExtension.h"
 #import "DCHEventOperationTicket.h"
 #import <Tourbillon/DCHTourbillon.h>
 #import <libextobjc/EXTScope.h>
@@ -64,7 +63,7 @@
             break;
         }
             
-        result = [[DCHEventOperationTicket alloc] initWithEvent:event];
+        result = [[DCHEventOperationTicket alloc] initWithEvent:event andHandler:self];
         
         @weakify(self);
         dispatch_block_t action = ^{
