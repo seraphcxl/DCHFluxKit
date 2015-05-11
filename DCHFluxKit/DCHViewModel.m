@@ -45,15 +45,15 @@
     return NO;
 }
 
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event {
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event {
     return [self emitChangeWithEvent:event andCompletionHandler:nil];
 }
 
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event andCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event andCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     return [self emitChangeWithEvent:event inMainThread:[NSThread isMainThread] withCompletionHandler:completionHandler];
 }
 
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event inMainThread:(BOOL)isInMainThread withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     __block DCHEventOperationTicket *result = nil;
     do {
         if (!event) {

@@ -50,7 +50,7 @@
     return self;
 }
 
-- (DCHEventOperationTicket *)handleEvent:(id<DCHEvent>)event inMainThread:(BOOL)isInMainThread withResponderCallback:(DCHEventResponderCompletionHandler)callback {
+- (DCHEventOperationTicket *)handleEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withResponderCallback:(DCHEventResponderCompletionHandler)callback {
     __block DCHEventOperationTicket *result = nil;
     do {
         if (event == nil) {
@@ -141,7 +141,7 @@
     return result;
 }
 
-- (BOOL)addEventResponder:(id<DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode {
+- (BOOL)addEventResponder:(id <DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode {
     BOOL result = NO;
     do {
         if (eventResponder == nil || eventDomain == nil || [eventDomain isEqualToString:@""] || ![eventResponder isKindOfClass:[NSObject class]]) {
@@ -165,7 +165,7 @@
     return result;
 }
 
-- (BOOL)removeEventResponder:(id<DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode {
+- (BOOL)removeEventResponder:(id <DCHEventResponder>)eventResponder forEventDomain:(NSString *)eventDomain code:(NSUInteger)eventCode {
     BOOL result = NO;
     do {
         if (eventResponder == nil || eventDomain == nil || [eventDomain isEqualToString:@""] || ![eventResponder isKindOfClass:[NSObject class]]) {

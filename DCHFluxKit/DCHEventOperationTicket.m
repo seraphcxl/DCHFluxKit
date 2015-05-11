@@ -32,7 +32,7 @@
     } while (NO);
 }
 
-- (instancetype)initWithEvent:(id<DCHEvent>)event andHandler:(id)handler {
+- (instancetype)initWithEvent:(id <DCHEvent>)event andHandler:(id)handler {
     if (!event || !handler) {
         return nil;
     }

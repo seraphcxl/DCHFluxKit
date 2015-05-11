@@ -66,7 +66,7 @@
     return self.payloadObj;
 }
 
-- (instancetype)initWithDomain:(NSString *)domain code:(NSUInteger)code mainThreadRequired:(BOOL)mainThreadRequired runningType:(DCHEventRunningType)runningType andPayload:(id<NSCopying>)payload {
+- (instancetype)initWithDomain:(NSString *)domain code:(NSUInteger)code mainThreadRequired:(BOOL)mainThreadRequired runningType:(DCHEventRunningType)runningType andPayload:(id <NSCopying>)payload {
     self = [super init];
     if (self) {
         self.domainStr = domain;
