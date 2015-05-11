@@ -12,13 +12,9 @@
 
 @implementation DCHStore
 
-@synthesize inputEvent = _inputEvent;
-@synthesize outputEvent = _outputEvent;
-
 - (void)dealloc {
     do {
-        self.outputEvent = nil;
-        self.inputEvent = nil;
+        ;
     } while (NO);
 }
 
@@ -49,14 +45,14 @@
     return result;
 }
 
-- (DCHEventOperationTicket *)emitChange {
-    return [self emitChangeWithEvent:self.outputEvent inMainThread:[NSThread isMainThread] withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event {
+    return [self emitChangeWithEvent:event inMainThread:[NSThread isMainThread] withCompletionHandler:^(id eventResponder, id<DCHEvent> outputEvent, NSError *error) {
         ;
     }];
 }
 
-- (DCHEventOperationTicket *)emitChangeWithCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
-    return [self emitChangeWithEvent:self.outputEvent inMainThread:[NSThread isMainThread] withCompletionHandler:completionHandler];
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event andCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
+    return [self emitChangeWithEvent:event inMainThread:[NSThread isMainThread] withCompletionHandler:completionHandler];
 }
 
 - (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {

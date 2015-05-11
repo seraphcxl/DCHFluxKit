@@ -35,17 +35,18 @@
 - (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     BOOL result = NO;
     do {
-        if (event == nil || completionHandler == nil) {
+        if (event == nil) {
             break;
         }
-        self.inputEvent = event;
-        self.outputEvent = event;
+        id <DCHEvent> outputEvent = [event copyWithZone:nil];
         self.name = @"Suise";
-        [self.outputEvent setPayload:[NSDictionary dictionaryWithObject:@"Suise" forKey:@"Name"]];
+        [outputEvent setPayload:[NSDictionary dictionaryWithObject:@"Suise" forKey:@"Name"]];
         
-        completionHandler(self, self.outputEvent, nil);
+        if (completionHandler) {
+            completionHandler(self, outputEvent, nil);
+        }
         
-        [self emitChangeWithCompletionHandler:completionHandler];
+        [self emitChangeWithEvent:outputEvent andCompletionHandler:completionHandler];
         
         result = YES;
     } while (NO);

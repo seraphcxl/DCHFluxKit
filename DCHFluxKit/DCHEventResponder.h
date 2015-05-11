@@ -20,11 +20,8 @@ typedef void(^DCHEventResponderCompletionHandler)(id eventResponder, id <DCHEven
 - (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;
 
 @optional
-@property (nonatomic, copy) id <DCHEvent> inputEvent;
-@property (nonatomic, copy) id <DCHEvent> outputEvent;
-
-- (DCHEventOperationTicket *)emitChange;
-- (DCHEventOperationTicket *)emitChangeWithCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;;
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event;
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event andCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler;
 
 @end

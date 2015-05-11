@@ -15,18 +15,18 @@
 - (BOOL)respondEvent:(id <DCHEvent>)event from:(id)source withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     BOOL result = NO;
     do {
-        if (event == nil || completionHandler == nil) {
+        if (event == nil) {
             break;
         }
-        self.inputEvent = event;
-        self.outputEvent = event;
-        
+        id <DCHEvent> outputEvent = [event copyWithZone:nil];
         NSDictionary *dic = (NSDictionary *)[event payload];
         self.greeting = [NSString stringWithFormat:@"Hello, %@.", [dic objectForKey:@"Name"]];
         
-        completionHandler(self, event, nil);
+        if (completionHandler) {
+            completionHandler(self, outputEvent, nil);
+        }
         
-        [self emitChange];
+        [self emitChangeWithEvent:outputEvent];
         
         result = YES;
     } while (NO);

@@ -20,8 +20,6 @@
 
 @implementation DCHViewModel
 
-@synthesize inputEvent = _inputEvent;
-@synthesize outputEvent = _outputEvent;
 @synthesize eventQueue = _eventQueue;
 @synthesize eventOperationTicketDic = _eventOperationTicketDic;
 
@@ -30,8 +28,6 @@
         self.eventQueue = nil;
         [self.eventOperationTicketDic threadSafe_uninit];
         self.eventOperationTicketDic = nil;
-        self.outputEvent = nil;
-        self.inputEvent = nil;
     } while (NO);
 }
 
@@ -49,11 +45,15 @@
     return NO;
 }
 
-- (DCHEventOperationTicket *)emitChange {
-    return [self emitChangeWithEvent:self.outputEvent inMainThread:[NSThread isMainThread]];
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event {
+    return [self emitChangeWithEvent:event andCompletionHandler:nil];
 }
 
-- (DCHEventOperationTicket *)emitChangeWithEvent:(id <DCHEvent>)event inMainThread:(BOOL)isInMainThread {
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event andCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
+    return [self emitChangeWithEvent:event inMainThread:[NSThread isMainThread] withCompletionHandler:completionHandler];
+}
+
+- (DCHEventOperationTicket *)emitChangeWithEvent:(id<DCHEvent>)event inMainThread:(BOOL)isInMainThread withCompletionHandler:(DCHEventResponderCompletionHandler)completionHandler {
     __block DCHEventOperationTicket *result = nil;
     do {
         if (!event) {
@@ -72,8 +72,8 @@
                     break;
                 }
                 [self.eventResponder respondEvent:event from:self withCompletionHandler:^(id eventResponder, id <DCHEvent> outputEvent, NSError *error) {
-                    if (error) {
-                        NSLog(@"%@", error);
+                    if (completionHandler) {
+                        completionHandler(eventResponder, outputEvent, error);
                     }
                 }];
             } while (NO);
