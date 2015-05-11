@@ -7,6 +7,7 @@
 //
 
 #import "GreetingViewModel.h"
+#import "GreetingEvent.h"
 
 @implementation GreetingViewModel
 
@@ -18,7 +19,7 @@
         if (event == nil) {
             break;
         }
-        id <DCHEvent> outputEvent = [event copyWithZone:nil];
+        id <DCHEvent> outputEvent = [(GreetingEvent *)event copy];
         NSDictionary *dic = (NSDictionary *)[event payload];
         self.greeting = [NSString stringWithFormat:@"Hello, %@.", [dic objectForKey:@"Name"]];
         

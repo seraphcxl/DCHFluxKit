@@ -7,6 +7,7 @@
 //
 
 #import "SumStore.h"
+#import "GreetingEvent.h"
 
 @interface SumStore ()
 
@@ -26,7 +27,7 @@
         if (event == nil) {
             break;
         }
-        id <DCHEvent> outputEvent = [event copyWithZone:nil];
+        id <DCHEvent> outputEvent = [(GreetingEvent *)event copy];
         NSDictionary *payload = (NSDictionary *)[outputEvent payload];
         if (payload) {
             NSNumber *num = [payload objectForKey:@"Num"];

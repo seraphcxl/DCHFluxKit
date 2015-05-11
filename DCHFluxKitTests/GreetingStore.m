@@ -7,6 +7,7 @@
 //
 
 #import "GreetingStore.h"
+#import "GreetingEvent.h"
 
 @interface GreetingStore ()
 
@@ -38,7 +39,7 @@
         if (event == nil) {
             break;
         }
-        id <DCHEvent> outputEvent = [event copyWithZone:nil];
+        id <DCHEvent> outputEvent = [(GreetingEvent *)event copy];
         self.name = @"Suise";
         [outputEvent setPayload:[NSDictionary dictionaryWithObject:@"Suise" forKey:@"Name"]];
         
