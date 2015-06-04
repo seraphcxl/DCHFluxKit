@@ -23,9 +23,9 @@
 
 - (void)dealloc {
     do {
-        [self.IndexDic DCH_threadSafe_uninit];
+        [self.IndexDic dch_threadSafe_uninit];
         self.IndexDic = nil;
-        [self.ary DCH_threadSafe_uninit];
+        [self.ary dch_threadSafe_uninit];
         self.ary = nil;
     } while (NO);
 }
@@ -33,8 +33,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.ary = [[NSMutableArray array] DCH_threadSafe_init:YES];
-        self.IndexDic = [[NSMutableDictionary dictionary] DCH_threadSafe_init:YES];
+        self.ary = [[NSMutableArray array] dch_threadSafe_init:YES];
+        self.IndexDic = [[NSMutableDictionary dictionary] dch_threadSafe_init:YES];
     }
     return self;
 }
@@ -44,8 +44,8 @@
         if (!anObject || !index || [index isEqualToString:@""]) {
             break;
         }
-        [self.ary DCH_threadSafe_addObject:anObject];
-        [self.IndexDic DCH_threadSafe_setObject:anObject forKey:index];
+        [self.ary dch_threadSafe_addObject:anObject];
+        [self.IndexDic dch_threadSafe_setObject:anObject forKey:index];
     } while (NO);
 }
 
@@ -54,19 +54,19 @@
         if (!index || [index isEqualToString:@""]) {
             break;
         }
-        id obj = [self.IndexDic DCH_threadSafe_objectForKey:index];
+        id obj = [self.IndexDic dch_threadSafe_objectForKey:index];
         if (!obj) {
             break;
         }
-        [self.IndexDic DCH_threadSafe_removeObjectForKey:index];
-        [self.ary DCH_threadSafe_removeObject:obj];
+        [self.IndexDic dch_threadSafe_removeObjectForKey:index];
+        [self.ary dch_threadSafe_removeObject:obj];
     } while (NO);
 }
 
 - (void)removeAllObjects {
     do {
-        [self.IndexDic DCH_threadSafe_removeAllObjects];
-        [self.ary DCH_threadSafe_removeAllObjects];
+        [self.IndexDic dch_threadSafe_removeAllObjects];
+        [self.ary dch_threadSafe_removeAllObjects];
     } while (NO);
 }
 
@@ -76,7 +76,7 @@
         if (!index || [index isEqualToString:@""]) {
             break;
         }
-        if ([self.IndexDic DCH_threadSafe_objectForKey:index]) {
+        if ([self.IndexDic dch_threadSafe_objectForKey:index]) {
             result = YES;
         }
     } while (NO);
@@ -86,7 +86,7 @@
 - (id)objectAtIndex:(NSUInteger)index {
     id result = nil;
     do {
-        result = [self.ary DCH_threadSafe_objectAtIndex:index];
+        result = [self.ary dch_threadSafe_objectAtIndex:index];
     } while (NO);
     return result;
 }
@@ -96,12 +96,12 @@
         if (!block) {
             break;
         }
-        [self.ary DCH_threadSafe_enumerateObjectsUsingBlock:block];
+        [self.ary dch_threadSafe_enumerateObjectsUsingBlock:block];
     } while (NO);
 }
 
 - (NSUInteger)count {
-    return self.ary.DCH_threadSafe_count;
+    return self.ary.dch_threadSafe_count;
 }
 
 @end

@@ -27,4 +27,6 @@
 
 - (NSString *)UUID;
 
+- (void)cancel;
+
 @end

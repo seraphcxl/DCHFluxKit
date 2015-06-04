@@ -45,7 +45,7 @@
 }
 
 - (NSString *)UUID {
-    return [self createMemoryID];
+    return [self dch_createMemoryID];
 }
 
 @end

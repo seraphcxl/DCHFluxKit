@@ -26,7 +26,7 @@
 - (void)dealloc {
     do {
         self.eventQueue = nil;
-        [self.eventOperationTicketDic DCH_threadSafe_uninit];
+        [self.eventOperationTicketDic dch_threadSafe_uninit];
         self.eventOperationTicketDic = nil;
     } while (NO);
 }
@@ -34,8 +34,8 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.eventQueue = dispatch_queue_create([[self createMemoryID] UTF8String], DISPATCH_QUEUE_CONCURRENT);
-        self.eventOperationTicketDic = [[NSMutableDictionary dictionary] DCH_threadSafe_init:YES];
+        self.eventQueue = dispatch_queue_create([[self dch_createMemoryID] UTF8String], DISPATCH_QUEUE_CONCURRENT);
+        self.eventOperationTicketDic = [[NSMutableDictionary dictionary] dch_threadSafe_init:YES];
     }
     return self;
 }
@@ -80,7 +80,7 @@
             result.finished = YES;
             result.working = NO;
             if (self) {
-                [self.eventOperationTicketDic DCH_threadSafe_removeObjectForKey:[result UUID]];
+                [self.eventOperationTicketDic dch_threadSafe_removeObjectForKey:[result UUID]];
             }
         };
         
@@ -93,14 +93,14 @@
             case DCHEventRunningType_Concurrent:
             {
                 dispatch_async(queue, action);
-                [self.eventOperationTicketDic DCH_threadSafe_setObject:result forKey:[result UUID]];
+                [self.eventOperationTicketDic dch_threadSafe_setObject:result forKey:[result UUID]];
             }
                 break;
             case DCHEventRunningType_Serial:
             default:
             {
                 dispatch_barrier_async(queue, action);
-                [self.eventOperationTicketDic DCH_threadSafe_setObject:result forKey:[result UUID]];
+                [self.eventOperationTicketDic dch_threadSafe_setObject:result forKey:[result UUID]];
             }
                 break;
         }
@@ -109,7 +109,7 @@
 }
 
 - (NSArray *)allEventsInQueue {
-    return [self.eventOperationTicketDic DCH_threadSafe_allValues];
+    return [self.eventOperationTicketDic dch_threadSafe_allValues];
 }
 
 @end

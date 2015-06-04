@@ -39,7 +39,7 @@
         if (!dispatcher) {
             break;
         }
-        NSString *eventObserverUUID = [dispatcher createMemoryID];
+        NSString *eventObserverUUID = [dispatcher dch_createMemoryID];
         if ([self.eventObserverAry containsObjectWithIndex:eventObserverUUID]) {
             break;
         }
@@ -52,7 +52,7 @@
         if (!dispatcher) {
             break;
         }
-        NSString *eventObserverUUID = [dispatcher createMemoryID];
+        NSString *eventObserverUUID = [dispatcher dch_createMemoryID];
         [self.eventObserverAry removeObjectWithIndex:eventObserverUUID];
     } while (NO);
 }
